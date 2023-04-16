@@ -1,4 +1,4 @@
-# Restaurant Page 🍔
+# Todo List 📝
 
 <p align="center">
   <img src="screenshots/.png" width="650px" alt="screenshot">
@@ -8,6 +8,8 @@
 </h2>
 
 ### About 📖
+
+Currently in development.
 
 Fourth project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com). A good practice of classes and storing data
 
