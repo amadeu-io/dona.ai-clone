@@ -15,7 +15,7 @@ Fourth project of the JavaScript chapter in [The Odin Project](https://www.theod
 
 ### Resources Used 📚
 
-- [Dribbble](https://dribbble.com) (UI Design)
+- [Dribbble](https://dribbble.com) (UI Inspo)
 - [Google Fonts](https://fonts.google.com) (Icons & Font)
 - [EmojiTerra](https://emojiterra.com/) (Emojis)
 
