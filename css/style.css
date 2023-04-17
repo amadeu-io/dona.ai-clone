@@ -1,3 +1,49 @@
-.dummy {
-  color: red;
+/* generic */
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  color: rgb(29, 29, 29);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* task */
+
+.task-container {
+  width: 300px;
+  border: 1px solid;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+}
+
+li:not(:first-child) {
+  margin-top: 20px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  border: 1px solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checked {
+  background-color: black;
 }
