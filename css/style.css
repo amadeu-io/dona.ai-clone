@@ -18,7 +18,7 @@ body {
 
 /* task */
 
-.task-container {
+ul {
   border: 1px solid;
   padding: 30px;
   box-sizing: border-box;
@@ -60,3 +60,5 @@ li:hover .close {
 .checked {
   background-color: black;
 }
+
+

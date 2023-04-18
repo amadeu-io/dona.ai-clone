@@ -14,7 +14,7 @@ class Task {
 function buildTasks(id) {
   const textInput = document.querySelector("#text-input");
   const newObject = new Task(textInput.value, false);
-  allTasks.push([]);
+  //allTasks.push([]);
   allTasks[id].push(newObject);
 }
 
@@ -62,12 +62,26 @@ function renderTasks(tasks) {
 // program starts here
 
 let form = document.querySelector("form");
-const taskContainer = document.querySelector(".task-container");
-let allTasks = [];
+const taskContainer = document.querySelector("ul");
+
+let allTasks = [[], [], [], [], []];
 let id = 0;
+
+const btn0 = document.getElementById("0");
+const btn1 = document.getElementById("1");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   buildTasks(id);
+  renderTasks(allTasks[id]);
+});
+
+btn0.addEventListener("click", () => {
+  id = 0;
+  renderTasks(allTasks[id]);
+});
+
+btn1.addEventListener("click", () => {
+  id = 1;
   renderTasks(allTasks[id]);
 });
