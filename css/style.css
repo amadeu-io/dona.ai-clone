@@ -19,7 +19,6 @@ body {
 /* task */
 
 .task-container {
-  width: 300px;
   border: 1px solid;
   padding: 30px;
   box-sizing: border-box;
@@ -29,10 +28,24 @@ body {
 li {
   display: flex;
   align-items: center;
+  width: 500px;
+  position: relative;
 }
 
 li:not(:first-child) {
   margin-top: 20px;
+}
+
+.close {
+  display: none;
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+li:hover .close {
+  display: block;
 }
 
 .checkbox {
