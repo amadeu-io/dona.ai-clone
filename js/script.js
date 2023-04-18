@@ -11,10 +11,11 @@ class Task {
 }
 
 // takes the form input and builds the tasks array
-function buildTasks() {
+function buildTasks(i) {
   const textInput = document.querySelector("#text-input");
   const newObject = new Task(textInput.value, false);
-  tasks.push(newObject);
+  allTasks.push([]);
+  allTasks[i].push(newObject);
 }
 
 // takes a list of tasks and renders it on screen
@@ -62,10 +63,30 @@ function renderTasks() {
 
 let form = document.querySelector("form");
 const taskContainer = document.querySelector(".task-container");
+let allTasks = [];
 let tasks = [];
+let currentTasks = 0;
+
+let button1 = document.getElementById("1");
+let button2 = document.getElementById("2");
+
+button1.addEventListener("click", () => {
+  currentTasks = 0;
+
+  tasks = allTasks[currentTasks];
+  renderTasks();
+});
+
+button2.addEventListener("click", () => {
+  currentTasks = 1;
+
+  tasks = allTasks[currentTasks];
+  renderTasks();
+});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  buildTasks();
+  buildTasks(currentTasks);
+  tasks = allTasks[currentTasks];
   renderTasks();
 });
