@@ -1,3 +1,4 @@
+// builds task objects
 class Task {
   constructor(title, completed) {
     this.title = title;
@@ -9,16 +10,15 @@ class Task {
   }
 }
 
-const taskContainer = document.querySelector(".task-container");
-
-let tasks = [
-  new Task("Walk Doggo", false),
-  new Task("Seven Best Doggo", false),
-  new Task("Groceries", false),
-];
+// takes the form input and builds the tasks array
+function buildTasks() {
+  const textInput = document.querySelector("#text-input");
+  const newObject = new Task(textInput.value, false);
+  tasks.push(newObject);
+}
 
 // takes a list of tasks and renders it on screen
-// with toggle and close functionality
+// also updates the list according to toggle & close actions
 function renderTasks() {
   taskContainer.innerHTML = "";
   tasks.forEach((task, index) => {
@@ -54,6 +54,18 @@ function renderTasks() {
       renderTasks();
     });
   });
+
+  console.log(tasks);
 }
 
-renderTasks();
+// program starts here
+
+let form = document.querySelector("form");
+const taskContainer = document.querySelector(".task-container");
+let tasks = [];
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  buildTasks();
+  renderTasks();
+});
