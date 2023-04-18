@@ -11,16 +11,16 @@ class Task {
 }
 
 // takes the form input and builds the tasks array
-function buildTasks(i) {
+function buildTasks(id) {
   const textInput = document.querySelector("#text-input");
   const newObject = new Task(textInput.value, false);
   allTasks.push([]);
-  allTasks[i].push(newObject);
+  allTasks[id].push(newObject);
 }
 
 // takes a list of tasks and renders it on screen
 // also updates the list according to toggle & close actions
-function renderTasks() {
+function renderTasks(tasks) {
   taskContainer.innerHTML = "";
   tasks.forEach((task, index) => {
     // create list element with content & append to container
@@ -46,13 +46,13 @@ function renderTasks() {
     // if checkbox is clicked, toggle item and render again
     taskCheckbox.addEventListener("click", () => {
       task.toggle();
-      renderTasks();
+      renderTasks(tasks);
     });
 
     // if x is clicked, remove item and render again
     taskClose.addEventListener("click", () => {
       tasks.splice(index, 1);
-      renderTasks();
+      renderTasks(tasks);
     });
   });
 
@@ -64,29 +64,10 @@ function renderTasks() {
 let form = document.querySelector("form");
 const taskContainer = document.querySelector(".task-container");
 let allTasks = [];
-let tasks = [];
-let currentTasks = 0;
-
-let button1 = document.getElementById("1");
-let button2 = document.getElementById("2");
-
-button1.addEventListener("click", () => {
-  currentTasks = 0;
-
-  tasks = allTasks[currentTasks];
-  renderTasks();
-});
-
-button2.addEventListener("click", () => {
-  currentTasks = 1;
-
-  tasks = allTasks[currentTasks];
-  renderTasks();
-});
+let id = 0;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  buildTasks(currentTasks);
-  tasks = allTasks[currentTasks];
-  renderTasks();
+  buildTasks(id);
+  renderTasks(allTasks[id]);
 });
