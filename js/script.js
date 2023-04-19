@@ -11,7 +11,7 @@ class Task {
 }
 
 // takes the form input and builds the allTasks array of arrays
-function buildTaskList(id) {
+function buildTaskList() {
   const textInput = document.querySelector("#text-input");
   const newObject = new Task(textInput.value, false);
   //allTasks.push([]);
@@ -72,7 +72,7 @@ const btn1 = document.getElementById("1");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  buildTaskList(id);
+  buildTaskList();
   renderTaskList(allTaskList[id]);
 });
 
