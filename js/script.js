@@ -10,7 +10,7 @@ class Task {
   }
 }
 
-// takes the form input and builds the tasks array
+// takes the form input and builds the allTasks array of arrays
 function buildTasks(id) {
   const textInput = document.querySelector("#text-input");
   const newObject = new Task(textInput.value, false);
@@ -18,13 +18,13 @@ function buildTasks(id) {
   allTasks[id].push(newObject);
 }
 
-// takes a list of tasks and renders it on screen
+// takes an array of tasks and renders it on screen
 // also updates the list according to toggle & close actions
-function renderTasks(tasks) {
+function renderTasks(taskList) {
   taskContainer.innerHTML = "";
-  tasks.forEach((task, index) => {
+  taskList.forEach((task, index) => {
     // create list element with content & append to container
-    const taskList = document.createElement("li");
+    const taskItem = document.createElement("li");
     const taskCheckbox = document.createElement("div");
     const taskTitle = document.createElement("div");
     const taskClose = document.createElement("div");
@@ -33,10 +33,10 @@ function renderTasks(tasks) {
     taskClose.className = "close";
     taskTitle.textContent = task.title;
     taskClose.textContent = "x";
-    taskList.appendChild(taskCheckbox);
-    taskList.appendChild(taskTitle);
-    taskList.appendChild(taskClose);
-    taskContainer.appendChild(taskList);
+    taskItem.appendChild(taskCheckbox);
+    taskItem.appendChild(taskTitle);
+    taskItem.appendChild(taskClose);
+    taskContainer.appendChild(taskItem);
 
     // if task is completed add checked
     if (task.completed) {
@@ -46,17 +46,17 @@ function renderTasks(tasks) {
     // if checkbox is clicked, toggle item and render again
     taskCheckbox.addEventListener("click", () => {
       task.toggle();
-      renderTasks(tasks);
+      renderTasks(taskList);
     });
 
     // if x is clicked, remove item and render again
     taskClose.addEventListener("click", () => {
-      tasks.splice(index, 1);
-      renderTasks(tasks);
+      taskList.splice(index, 1);
+      renderTasks(taskList);
     });
   });
 
-  console.log(tasks);
+  console.log(taskList);
 }
 
 // program starts here
