@@ -15,7 +15,7 @@ function buildTaskList(id) {
   const textInput = document.querySelector("#text-input");
   const newObject = new Task(textInput.value, false);
   //allTasks.push([]);
-  allTasks[id].push(newObject);
+  allTaskList[id].push(newObject);
 }
 
 // takes an array of tasks and renders it on screen
@@ -64,7 +64,7 @@ function renderTaskList(taskList) {
 let form = document.querySelector("form");
 const taskContainer = document.querySelector("ul");
 
-let allTasks = [[], [], [], [], []];
+let allTaskList = [[], [], [], [], []];
 let id = 0;
 
 const btn0 = document.getElementById("0");
@@ -73,15 +73,15 @@ const btn1 = document.getElementById("1");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   buildTaskList(id);
-  renderTaskList(allTasks[id]);
+  renderTaskList(allTaskList[id]);
 });
 
 btn0.addEventListener("click", () => {
   id = 0;
-  renderTaskList(allTasks[id]);
+  renderTaskList(allTaskList[id]);
 });
 
 btn1.addEventListener("click", () => {
   id = 1;
-  renderTaskList(allTasks[id]);
+  renderTaskList(allTaskList[id]);
 });
