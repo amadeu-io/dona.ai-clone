@@ -59,16 +59,37 @@ function renderTaskList(taskList) {
   console.log(taskList);
 }
 
+// creates list item with rendering functionalities
+function createList() {
+  id = count;
+  const taskListTitle = document.createElement("div");
+  taskListTitle.className = "title";
+  taskListTitle.textContent = id;
+  taskListTitle.id = id;
+  titleContainer.appendChild(taskListTitle);
+
+  taskListTitle.addEventListener("click", () => {
+    id = taskListTitle.id;
+    console.log(id);
+    renderTaskList(allTaskList[id]);
+  });
+
+  renderTaskList(allTaskList[id]);
+
+  count++;
+}
+
 // program starts here
 
 let form = document.querySelector("form");
 const taskContainer = document.querySelector("ul");
+const titleContainer = document.querySelector(".title-container");
 
-let allTaskList = [[], [], [], [], []];
+let allTaskList = [[], [], [], [], [], [], [], [], [], []];
 let id = 0;
+let count = 0;
 
-const btn0 = document.getElementById("0");
-const btn1 = document.getElementById("1");
+const btn = document.querySelector("button");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -76,12 +97,6 @@ form.addEventListener("submit", (event) => {
   renderTaskList(allTaskList[id]);
 });
 
-btn0.addEventListener("click", () => {
-  id = 0;
-  renderTaskList(allTaskList[id]);
-});
+createList();
 
-btn1.addEventListener("click", () => {
-  id = 1;
-  renderTaskList(allTaskList[id]);
-});
+btn.addEventListener("click", createList);
