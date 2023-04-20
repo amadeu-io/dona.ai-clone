@@ -39,7 +39,7 @@ function renderList(id) {
     task.appendChild(taskRemove);
     list.appendChild(task);
 
-    // remove item
+    // remove task
     taskRemove.addEventListener("click", () => {
       masterArray[id].list.splice(index, 1);
       renderList(id);
@@ -52,9 +52,20 @@ function renderSidebar() {
   sidebar.innerHTML = "";
   masterArray.forEach((item, index) => {
     const title = document.createElement("li");
+    const titleRemove = document.createElement("div");
     title.className = "title";
+    titleRemove.className = "title-remove";
     title.textContent = item.title;
+    titleRemove.textContent = "x";
+    title.appendChild(titleRemove);
     sidebar.appendChild(title);
+
+    // remove title
+    titleRemove.addEventListener("click", () => {
+      masterArray.splice(index, 1);
+      renderSidebar();
+      renderList(id);
+    });
   });
 }
 
