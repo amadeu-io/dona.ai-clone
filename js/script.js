@@ -29,22 +29,24 @@ const id = 0;
 // renders list with specified id
 function renderList(id) {
   list.innerHTML = "";
-  masterArray[id].list.forEach((item, index) => {
-    const task = document.createElement("li");
-    const taskRemove = document.createElement("div");
-    task.className = "task";
-    taskRemove.className = "task-remove";
-    task.textContent = item;
-    taskRemove.textContent = "x";
-    task.appendChild(taskRemove);
-    list.appendChild(task);
+  if (masterArray.length) {
+    masterArray[id].list.forEach((item, index) => {
+      const task = document.createElement("li");
+      const taskRemove = document.createElement("div");
+      task.className = "task";
+      taskRemove.className = "task-remove";
+      task.textContent = item;
+      taskRemove.textContent = "x";
+      task.appendChild(taskRemove);
+      list.appendChild(task);
 
-    // remove task
-    taskRemove.addEventListener("click", () => {
-      masterArray[id].list.splice(index, 1);
-      renderList(id);
+      // remove task
+      taskRemove.addEventListener("click", () => {
+        masterArray[id].list.splice(index, 1);
+        renderList(id);
+      });
     });
-  });
+  }
 }
 
 // renders sidebar
