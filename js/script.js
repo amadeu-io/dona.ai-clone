@@ -20,9 +20,13 @@ let masterArray = [
 
 const left = document.querySelector(".left");
 const sidebar = document.querySelector(".sidebar");
+const sidebarForm = document.querySelector(".sidebar-form");
+const sidebarInput = document.getElementById("sidebar-input");
 
 const right = document.querySelector(".right");
 const list = document.querySelector(".list");
+const listForm = document.querySelector(".list-form");
+const listInput = document.getElementById("list-input");
 
 const id = 0;
 
@@ -73,3 +77,19 @@ function renderSidebar() {
 
 renderList(id);
 renderSidebar();
+
+listForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  masterArray[id].list.push(listInput.value);
+  renderList(id);
+});
+
+sidebarForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  masterArray.push({
+    title: sidebarInput.value,
+    list: [],
+    id: 0,
+  });
+  renderSidebar();
+});
