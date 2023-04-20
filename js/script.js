@@ -28,7 +28,7 @@ const list = document.querySelector(".list");
 const listForm = document.querySelector(".list-form");
 const listInput = document.getElementById("list-input");
 
-const id = 0;
+let id = 0;
 
 // renders list with specified id
 function renderList(id) {
@@ -72,6 +72,12 @@ function renderSidebar() {
       renderSidebar();
       renderList(id);
     });
+
+    // click on title
+    title.addEventListener("click", () => {
+      id = index;
+      renderList(id);
+    });
   });
 }
 
@@ -86,6 +92,7 @@ listForm.addEventListener("submit", (event) => {
 
 sidebarForm.addEventListener("submit", (event) => {
   event.preventDefault();
+  // this should be done w a constructor
   masterArray.push({
     title: sidebarInput.value,
     list: [],
