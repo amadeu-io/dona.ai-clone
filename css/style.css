@@ -53,3 +53,18 @@ body {
   margin-bottom: 20px;
   padding: 20px;
 }
+
+.right li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-remove {
+  display: none;
+  cursor: pointer;
+}
+
+.right li:hover .task-remove {
+  display: block;
+}

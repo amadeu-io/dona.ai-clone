@@ -31,9 +31,19 @@ function renderList(id) {
   list.innerHTML = "";
   masterArray[id].list.forEach((item, index) => {
     const task = document.createElement("li");
+    const taskRemove = document.createElement("div");
     task.className = "task";
+    taskRemove.className = "task-remove";
     task.textContent = item;
+    taskRemove.textContent = "x";
+    task.appendChild(taskRemove);
     list.appendChild(task);
+
+    // remove item
+    taskRemove.addEventListener("click", () => {
+      masterArray[id].list.splice(index, 1);
+      renderList(id);
+    });
   });
 }
 
@@ -41,7 +51,6 @@ function renderList(id) {
 function renderSidebar() {
   sidebar.innerHTML = "";
   masterArray.forEach((item, index) => {
-    console.log(item.title);
     const title = document.createElement("li");
     title.className = "title";
     title.textContent = item.title;
