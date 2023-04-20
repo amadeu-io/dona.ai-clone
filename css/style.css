@@ -1,81 +1,44 @@
 /* generic */
 
-html,
-body {
+html {
   height: 100%;
 }
 
 html {
-  color: rgb(29, 29, 29);
+  color: rgb(53, 53, 53);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
 
 body {
+  height: 90%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 10px;
+  gap: 10px;
 }
 
-/* task */
+/* left & right containers */
 
-ul {
+.left {
+  width: 300px;
+  padding: 40px;
   border: 1px solid;
-  padding: 30px;
-  box-sizing: border-box;
   border-radius: 15px;
 }
 
-li {
-  display: flex;
-  align-items: center;
-  width: 500px;
-  position: relative;
+.right {
+  width: 100%;
+  padding: 100px;
 }
 
-li:not(:first-child) {
-  margin-top: 20px;
-}
+/* list */
 
-.close {
-  display: none;
-  position: absolute;
-  right: 0;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-li:hover .close {
-  display: block;
-}
-
-.checkbox {
-  width: 20px;
-  height: 20px;
-  margin-right: 20px;
+.right li,
+.right input {
+  width: 100%;
+  font-size: 1rem;
   border: 1px solid;
   border-radius: 5px;
-  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 20px;
 }
-
-.checked {
-  background-color: black;
-}
-
-
-/* menu */
-
-.list-item {
-  height: 40px;
-  width: 150px;
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.list-title,
-.list-close {
-  cursor: pointer;
-}
-
-

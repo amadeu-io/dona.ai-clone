@@ -7,12 +7,25 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
   </head>
   <body>
-    <form>
-      <input id="text-input" type="text" placeholder="Add new task" />
-    </form>
-    <ul>
-      <!-- this is where taskList is rendered -->
-    </ul>
+    <!-- sidebar -->
+    <div class="left">
+      <ul class="sidebar">
+        <li>Groceries</li>
+      </ul>
+    </div>
+
+    <!-- list -->
+    <div class="right">
+      <form class="list-form">
+        <input id="list-input" type="text" placeholder="Add new task" />
+      </form>
+      <ul class="list">
+        <!-- <li class="task">Bread</li>
+        <li class="task">Milk</li>
+        <li class="task">Broccoli</li> -->
+      </ul>
+    </div>
+
     <script src="./js/script.js"></script>
   </body>
 </html>
