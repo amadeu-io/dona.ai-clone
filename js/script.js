@@ -60,13 +60,18 @@ function renderTaskList(taskList) {
 }
 
 // creates list item with rendering functionalities
-function createList() {
+function createTitleList() {
   id = count;
   const taskListTitle = document.createElement("div");
+  const taskListClose = document.createElement("div");
   taskListTitle.className = "title";
+  taskListClose.className = "list-close";
   taskListTitle.textContent = id;
+  taskListClose.textContent = "x";
   taskListTitle.id = id;
+  taskListClose.id = id;
   titleContainer.appendChild(taskListTitle);
+  titleContainer.appendChild(taskListClose);
 
   taskListTitle.addEventListener("click", () => {
     id = taskListTitle.id;
@@ -77,6 +82,11 @@ function createList() {
   renderTaskList(allTaskList[id]);
 
   count++;
+
+  //remove list
+  taskListClose.addEventListener("click", () => {
+    console.log(titleContainer);
+  });
 }
 
 // program starts here
@@ -97,6 +107,6 @@ form.addEventListener("submit", (event) => {
   renderTaskList(allTaskList[id]);
 });
 
-createList();
+createTitleList();
 
-btn.addEventListener("click", createList);
+btn.addEventListener("click", createTitleList);
