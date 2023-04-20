@@ -26,7 +26,7 @@ const list = document.querySelector(".list");
 
 const id = 0;
 
-// renders list with id
+// renders list with specified id
 function renderList(id) {
   list.innerHTML = "";
   masterArray[id].list.forEach((item, index) => {
