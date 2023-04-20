@@ -29,6 +29,7 @@ const listForm = document.querySelector(".list-form");
 const listInput = document.getElementById("list-input");
 
 let id = 0;
+let count = 3;
 
 // renders list with specified id
 function renderList(id) {
@@ -88,9 +89,11 @@ listForm.addEventListener("submit", (event) => {
   event.preventDefault();
   masterArray[id].list.push(listInput.value);
   renderList(id);
+  listInput.value = "";
 });
 
 sidebarForm.addEventListener("submit", (event) => {
+  id = count;
   event.preventDefault();
   // this should be done w a constructor
   masterArray.push({
@@ -99,4 +102,7 @@ sidebarForm.addEventListener("submit", (event) => {
     id: 0,
   });
   renderSidebar();
+  renderList(id);
+  sidebarInput.value = "";
+  count++;
 });
