@@ -55,38 +55,37 @@ function renderTaskList(taskList) {
       renderTaskList(taskList);
     });
   });
-
-  console.log(taskList);
 }
 
 // creates list item with rendering functionalities
 function createTitleList() {
   id = count;
+  const taskListItem = document.createElement("div");
   const taskListTitle = document.createElement("div");
   const taskListClose = document.createElement("div");
-  taskListTitle.className = "title";
+  taskListItem.className = "list-item";
+  taskListTitle.className = "list-title";
   taskListClose.className = "list-close";
   taskListTitle.textContent = id;
   taskListClose.textContent = "x";
-  taskListTitle.id = id;
-  taskListClose.id = id;
-  titleContainer.appendChild(taskListTitle);
-  titleContainer.appendChild(taskListClose);
+  taskListItem.id = id;
+  taskListItem.appendChild(taskListTitle);
+  taskListItem.appendChild(taskListClose);
+  titleContainer.appendChild(taskListItem);
 
   taskListTitle.addEventListener("click", () => {
-    id = taskListTitle.id;
-    console.log(id);
-    renderTaskList(allTaskList[id]);
+    id = taskListItem.id;
+    renderTaskList(allTaskList[taskListItem.id]);
   });
 
   renderTaskList(allTaskList[id]);
 
-  count++;
-
   //remove list
   taskListClose.addEventListener("click", () => {
-    console.log(titleContainer);
+    taskListItem.remove();
   });
+
+  count++;
 }
 
 // program starts here

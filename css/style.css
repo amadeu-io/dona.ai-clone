@@ -64,14 +64,18 @@ li:hover .close {
 
 /* menu */
 
-.title {
+.list-item {
   height: 40px;
   width: 150px;
   border: 1px solid black;
-  cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.list-title,
+.list-close {
+  cursor: pointer;
 }
 
 
