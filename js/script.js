@@ -76,6 +76,33 @@ function renderSidebar() {
     title.appendChild(titleRemove);
     sidebar.appendChild(title);
 
+    // make editable
+    titleText.addEventListener("click", function (event) {
+      // prevent bubbling
+      event.stopPropagation();
+
+      var inputElement = document.createElement("input");
+      inputElement.id = "sidebar-title-input";
+      inputElement.type = "text";
+      inputElement.placeholder = "+   Create new list";
+      title.innerHTML = "";
+      title.appendChild(inputElement);
+
+      inputElement.addEventListener("blur", () => {
+        masterArray[index].title = inputElement.value;
+        renderSidebar();
+      });
+
+      inputElement.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+          masterArray[index].title = inputElement.value;
+          renderSidebar();
+        }
+      });
+
+      inputElement.focus();
+    });
+
     // remove title
     titleRemove.addEventListener("click", (event) => {
       // prevent bubbling
