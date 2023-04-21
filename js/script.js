@@ -89,14 +89,18 @@ function renderSidebar() {
       title.appendChild(inputElement);
 
       inputElement.addEventListener("blur", () => {
-        masterArray[index].title = inputElement.value;
-        renderSidebar();
+        if (inputElement.value.trim()) {
+          masterArray[index].title = inputElement.value;
+          renderSidebar();
+        }
       });
 
       inputElement.addEventListener("keyup", (event) => {
-        if (event.key === "Enter") {
-          masterArray[index].title = inputElement.value;
-          renderSidebar();
+        if (inputElement.value.trim()) {
+          if (event.key === "Enter") {
+            masterArray[index].title = inputElement.value;
+            renderSidebar();
+          }
         }
       });
 
