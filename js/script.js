@@ -97,25 +97,30 @@ renderSidebar();
 
 listForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  if (masterArray.length === 0) {
-    // if there are no lists, and user adds a new item
-    masterArray.push(new List("Todo 1", [listInput.value]));
-    id = 0;
-    renderSidebar();
-  } else {
-    masterArray[id].list.push(listInput.value);
+  // prevent blank inputs
+  if (listInput.value.trim()) {
+    if (masterArray.length === 0) {
+      // edge case: if there are no lists, and user adds a new item
+      masterArray.push(new List("Todo 1", [listInput.value]));
+      id = 0;
+      renderSidebar();
+    } else {
+      masterArray[id].list.push(listInput.value);
+    }
+    renderList(id);
   }
-
-  renderList(id);
   listInput.value = "";
 });
 
 sidebarForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  masterArray.push(new List(sidebarInput.value, []));
-  // when a new list is created, display that list by default
-  id = masterArray.length - 1;
-  renderSidebar();
-  renderList(id);
+  // prevent blank inputs
+  if (sidebarInput.value.trim()) {
+    masterArray.push(new List(sidebarInput.value, []));
+    // when a new list is created, display that list by default
+    id = masterArray.length - 1;
+    renderSidebar();
+    renderList(id);
+  }
   sidebarInput.value = "";
 });
