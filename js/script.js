@@ -18,6 +18,13 @@ let masterArray = [
   },
 ];
 
+class List {
+  constructor(title, list) {
+    this.title = title;
+    this.list = list;
+  }
+}
+
 const left = document.querySelector(".left");
 const sidebar = document.querySelector(".sidebar");
 const sidebarForm = document.querySelector(".sidebar-form");
@@ -97,12 +104,7 @@ listForm.addEventListener("submit", (event) => {
 
 sidebarForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  // this should be done w a constructor
-  masterArray.push({
-    title: sidebarInput.value,
-    list: [],
-    id: 0,
-  });
+  masterArray.push(new List(sidebarInput.value, []));
   // when a new list is created, display that list by default
   id = masterArray.length - 1;
   renderSidebar();
