@@ -93,7 +93,6 @@ listForm.addEventListener("submit", (event) => {
 });
 
 sidebarForm.addEventListener("submit", (event) => {
-  id = count;
   event.preventDefault();
   // this should be done w a constructor
   masterArray.push({
@@ -101,8 +100,8 @@ sidebarForm.addEventListener("submit", (event) => {
     list: [],
     id: 0,
   });
+  id = masterArray.length - 1;
   renderSidebar();
   renderList(id);
   sidebarInput.value = "";
-  count++;
 });
