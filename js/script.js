@@ -65,11 +65,14 @@ function renderSidebar() {
   sidebar.innerHTML = "";
   masterArray.forEach((item, index) => {
     const title = document.createElement("li");
+    const titleText = document.createElement("div");
     const titleRemove = document.createElement("div");
     title.className = "title";
+    titleText.className = "title-text";
     titleRemove.className = "title-remove";
-    title.textContent = item.title;
+    titleText.textContent = item.title;
     titleRemove.textContent = "x";
+    title.appendChild(titleText);
     title.appendChild(titleRemove);
     sidebar.appendChild(title);
 
