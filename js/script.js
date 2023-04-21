@@ -29,7 +29,6 @@ const listForm = document.querySelector(".list-form");
 const listInput = document.getElementById("list-input");
 
 let id = 0;
-let count = 3;
 
 // renders list with specified id
 function renderList(id) {
