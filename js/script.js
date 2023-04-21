@@ -69,15 +69,17 @@ function renderSidebar() {
 
     // remove title
     titleRemove.addEventListener("click", (event) => {
-      event.stopPropagation(); // prevent bubbling
+      // prevent bubbling
+      event.stopPropagation();
       masterArray.splice(index, 1);
+      // makes sure the id never goes past the last item, prevents bug
+      id = Math.min(id, masterArray.length - 1);
       renderSidebar();
       renderList(id);
     });
 
     // click on title
     title.addEventListener("click", () => {
-      console.log("touchhh");
       id = index;
       renderList(id);
     });
@@ -102,8 +104,9 @@ sidebarForm.addEventListener("submit", (event) => {
     list: [],
     id: 0,
   });
-  //id = masterArray.length - 1;
+  // when a new list is created, display that list by default
+  id = masterArray.length - 1;
   renderSidebar();
-  renderList(masterArray.length - 1);
+  renderList(id);
   sidebarInput.value = "";
 });
