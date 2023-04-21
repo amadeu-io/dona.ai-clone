@@ -68,7 +68,8 @@ function renderSidebar() {
     sidebar.appendChild(title);
 
     // remove title
-    titleRemove.addEventListener("click", () => {
+    titleRemove.addEventListener("click", (event) => {
+      event.stopPropagation(); // prevent bubbling
       masterArray.splice(index, 1);
       renderSidebar();
       renderList(id);
@@ -76,6 +77,7 @@ function renderSidebar() {
 
     // click on title
     title.addEventListener("click", () => {
+      console.log("touchhh");
       id = index;
       renderList(id);
     });
@@ -100,8 +102,8 @@ sidebarForm.addEventListener("submit", (event) => {
     list: [],
     id: 0,
   });
-  id = masterArray.length - 1;
+  //id = masterArray.length - 1;
   renderSidebar();
-  renderList(id);
+  renderList(masterArray.length - 1);
   sidebarInput.value = "";
 });
