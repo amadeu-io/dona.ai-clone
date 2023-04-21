@@ -97,7 +97,15 @@ renderSidebar();
 
 listForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  masterArray[id].list.push(listInput.value);
+  if (masterArray.length === 0) {
+    // if there are no lists, and user adds a new item
+    masterArray.push(new List("Todo 1", [listInput.value]));
+    id = 0;
+    renderSidebar();
+  } else {
+    masterArray[id].list.push(listInput.value);
+  }
+
   renderList(id);
   listInput.value = "";
 });
