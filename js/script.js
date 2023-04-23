@@ -4,17 +4,14 @@ let masterArray = [
   {
     title: "Groceries",
     list: ["Bread", "Milk", "Broccoli"],
-    id: 0,
   },
   {
     title: "Doggo",
     list: ["Seven Best Doggo", "Dog", "Smart Doggo"],
-    id: 1,
   },
   {
     title: "Goals",
     list: ["Travel The World", "Fight The Inner Weakness"],
-    id: 2,
   },
 ];
 
@@ -43,16 +40,32 @@ function renderList(id) {
   if (masterArray.length) {
     masterArray[id].list.forEach((item, index) => {
       const task = document.createElement("li");
+      const taskContainer = document.createElement("div");
       const taskText = document.createElement("span");
+      const taskCheckbox = document.createElement("span");
       const taskRemove = document.createElement("span");
+
       task.className = "task";
+      taskContainer.className = "task-container";
       taskText.className = "task-text";
+      taskCheckbox.className = "task-checkbox";
       taskRemove.className = "task-remove";
+
       taskText.textContent = item;
       taskRemove.textContent = "x";
-      task.appendChild(taskText);
+
+      taskContainer.appendChild(taskCheckbox);
+      taskContainer.appendChild(taskText);
+      task.appendChild(taskContainer);
       task.appendChild(taskRemove);
+
       list.appendChild(task);
+
+      // toggle checkbox
+      taskCheckbox.addEventListener("click", () => {
+        console.log("sdf");
+        taskCheckbox.classList.add("checked");
+      });
 
       // remove task
       taskRemove.addEventListener("click", () => {
@@ -70,11 +83,14 @@ function renderSidebar() {
     const title = document.createElement("li");
     const titleText = document.createElement("span");
     const titleRemove = document.createElement("span");
+
     title.className = "title";
     titleText.className = "title-text";
     titleRemove.className = "title-remove";
+
     titleText.textContent = item.title;
     titleRemove.textContent = "x";
+
     title.appendChild(titleText);
     title.appendChild(titleRemove);
     sidebar.appendChild(title);

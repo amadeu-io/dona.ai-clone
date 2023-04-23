@@ -17,6 +17,11 @@ body {
   gap: 10px;
 }
 
+#sidebar-input:focus,
+#list-input:focus {
+  outline: 1px solid;
+}
+
 /* left & right containers */
 
 .left {
@@ -59,7 +64,6 @@ body {
   font-size: 1rem;
 }
 
-#sidebar-input:focus,
 #sidebar-title-input:focus {
   outline: none;
 }
@@ -76,7 +80,7 @@ body {
 /* list */
 
 .right li,
-.right input {
+#list-input {
   width: 100%;
   font-size: 1rem;
   border: 1px solid;
@@ -89,6 +93,26 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.task-container {
+  border: 0px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.task-checkbox {
+  height: 15px;
+  width: 15px;
+  margin-right: 15px;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* will check the checkbox */
+.checked {
+  background-color: black;
 }
 
 .task-remove {
