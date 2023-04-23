@@ -64,7 +64,7 @@ function renderList(id) {
 function renderSidebar() {
   sidebar.innerHTML = "";
   masterArray.forEach((item, index) => {
-    const title = document.createElement("div");
+    const title = document.createElement("li");
     const titleText = document.createElement("div");
     const titleRemove = document.createElement("div");
     title.className = "title";
@@ -81,30 +81,31 @@ function renderSidebar() {
       // prevent bubbling
       event.stopPropagation();
 
-      const formElement = document.createElement("form");
       const inputElement = document.createElement("input");
-      title.innerHTML = "";
-      //title.parentNode.replaceChild(formElement, title);
-
       inputElement.id = "sidebar-title-input";
       inputElement.type = "text";
       inputElement.placeholder = "+   Create new list";
-      
+
+      title.innerHTML = "";
       title.appendChild(inputElement);
 
       inputElement.addEventListener("blur", () => {
+        // if the value is not empty, update with the input
         if (inputElement.value.trim()) {
           masterArray[index].title = inputElement.value;
-          renderSidebar();
         }
+        renderSidebar();
       });
 
       inputElement.addEventListener("keyup", (event) => {
+        // if the value is not empty, update with the input
         if (inputElement.value.trim()) {
           if (event.key === "Enter") {
             masterArray[index].title = inputElement.value;
             renderSidebar();
           }
+        } else {
+          renderSidebar();
         }
       });
 

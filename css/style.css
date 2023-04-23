@@ -33,13 +33,6 @@ body {
 
 /* sidebar */
 
-form,
-input {
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
-
 .title,
 #sidebar-input {
   font-size: 1rem;
@@ -47,11 +40,6 @@ input {
   border-radius: 5px;
   margin-bottom: 20px;
   padding: 15px;
-}
-
-#sidebar-input:focus,
-#sidebar-title-input:focus {
-  outline: none;
 }
 
 .title,
@@ -69,6 +57,11 @@ input {
 
 #sidebar-title-input {
   font-size: 1rem;
+}
+
+#sidebar-input:focus,
+#sidebar-title-input:focus {
+  outline: none;
 }
 
 .title-remove {
