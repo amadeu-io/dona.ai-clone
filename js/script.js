@@ -43,11 +43,14 @@ function renderList(id) {
   if (masterArray.length) {
     masterArray[id].list.forEach((item, index) => {
       const task = document.createElement("li");
-      const taskRemove = document.createElement("div");
+      const taskText = document.createElement("span");
+      const taskRemove = document.createElement("span");
       task.className = "task";
+      taskText.className = "task-text";
       taskRemove.className = "task-remove";
-      task.textContent = item;
+      taskText.textContent = item;
       taskRemove.textContent = "x";
+      task.appendChild(taskText);
       task.appendChild(taskRemove);
       list.appendChild(task);
 
@@ -65,8 +68,8 @@ function renderSidebar() {
   sidebar.innerHTML = "";
   masterArray.forEach((item, index) => {
     const title = document.createElement("li");
-    const titleText = document.createElement("div");
-    const titleRemove = document.createElement("div");
+    const titleText = document.createElement("span");
+    const titleRemove = document.createElement("span");
     title.className = "title";
     titleText.className = "title-text";
     titleRemove.className = "title-remove";
