@@ -33,7 +33,14 @@ body {
 
 /* sidebar */
 
-.left li,
+form,
+input {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.title,
 #sidebar-input {
   font-size: 1rem;
   border: 1px solid;
@@ -42,11 +49,26 @@ body {
   padding: 15px;
 }
 
-.left li {
+#sidebar-input:focus,
+#sidebar-title-input:focus {
+  outline: none;
+}
+
+.title,
+#sidebar-input,
+#sidebar-title-input {
+  height: 25px;
+}
+
+.title {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#sidebar-title-input {
+  font-size: 1rem;
 }
 
 .title-remove {
@@ -54,15 +76,8 @@ body {
   cursor: pointer;
 }
 
-.left li:hover .title-remove {
+.title:hover .title-remove {
   display: block;
-}
-
-#sidebar-title-input {
-  border: none;
-  padding: 0;
-  outline: none;
-  font-size: 1rem;
 }
 
 /* list */
