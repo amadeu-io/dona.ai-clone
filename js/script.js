@@ -1,6 +1,6 @@
 // masterArray
 
-const masterArray = [
+let masterArray = [
   {
     title: "Groceries",
     category: "🛒",
@@ -29,10 +29,13 @@ const masterArray = [
   },
 ];
 
-class Master {
-  constructor(title, list) {
+class MasterArray {
+  constructor(title, category, items) {
     this.title = title;
-    this.list = list;
+    this.category = category;
+    this.list = items.map((item) => {
+      return { text: item, checked: false };
+    });
   }
 }
 
@@ -174,11 +177,11 @@ listForm.addEventListener("submit", (event) => {
   if (listInput.value.trim()) {
     if (masterArray.length === 0) {
       // edge case: if there are no lists, and user adds a new item
-      masterArray.push(new Master("todo #1", [{ text: listInput.value }]));
+      masterArray.push(new MasterArray("todo #1", "🎯", [listInput.value]));
       id = 0;
       renderSidebar();
     } else {
-      masterArray[id].list.push({ text: listInput.value });
+      masterArray[id].list.push({ text: listInput.value, checked: false });
     }
     renderList(id);
   }
@@ -190,7 +193,7 @@ sidebarForm.addEventListener("submit", (event) => {
   event.preventDefault();
   // prevent blank inputs
   if (sidebarInput.value.trim()) {
-    masterArray.push(new Master(sidebarInput.value, []));
+    masterArray.push(new MasterArray(sidebarInput.value, "🎯", []));
     // when a new list is created, display that list by default
     id = masterArray.length - 1;
     renderSidebar();
