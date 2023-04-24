@@ -1,6 +1,6 @@
 // masterArray
 
-let masterArray = [
+const masterArray = [
   {
     title: "Groceries",
     category: "🛒",
@@ -29,17 +29,21 @@ let masterArray = [
   },
 ];
 
-class MasterArray {
-  constructor(title, category, items) {
+class Master {
+  constructor(title, list) {
     this.title = title;
-    this.category = category;
-    this.list = items.map((item) => ({
-      text: item,
-      checked: false,
-      toggleChecked: () => {
-        this.checked = !this.checked;
-      },
-    }));
+    this.list = list;
+  }
+}
+
+class List {
+  constructor(text, checked) {
+    this.text = text;
+    this.checked = checked;
+  }
+
+  toggle() {
+    this.checked = !this.checked;
   }
 }
 
@@ -84,7 +88,8 @@ function renderList(id) {
 
       // toggle checkbox
       taskCheckbox.addEventListener("click", () => {
-        console.log("sdf");
+        //masterArray[id].list[index].toggle();
+        //console.log(masterArray[id].list[index]);
         taskCheckbox.classList.add("checked");
       });
 
@@ -181,11 +186,14 @@ listForm.addEventListener("submit", (event) => {
   if (listInput.value.trim()) {
     if (masterArray.length === 0) {
       // edge case: if there are no lists, and user adds a new item
-      masterArray.push(new MasterArray("todo #1", "🎯", [listInput.value]));
+      masterArray.push(
+        new Master("todo #1", [new List(listInput.value, false)])
+      );
       id = 0;
       renderSidebar();
     } else {
-      masterArray[id].list.push({ text: listInput.value, checked: false });
+      masterArray[id].list.push(new List(listInput.value, false));
+      console.log(masterArray[id].list);
     }
     renderList(id);
   }
@@ -197,7 +205,7 @@ sidebarForm.addEventListener("submit", (event) => {
   event.preventDefault();
   // prevent blank inputs
   if (sidebarInput.value.trim()) {
-    masterArray.push(new MasterArray(sidebarInput.value, "🎯", []));
+    masterArray.push(new Master(sidebarInput.value, []));
     // when a new list is created, display that list by default
     id = masterArray.length - 1;
     renderSidebar();
