@@ -60,6 +60,10 @@ body {
   align-items: center;
 }
 
+.title-text {
+  cursor: text;
+}
+
 #sidebar-title-input {
   font-size: 1rem;
 }
@@ -111,6 +115,7 @@ body {
 }
 
 /* will check the checkbox */
+
 .checked {
   background-color: black;
 }
