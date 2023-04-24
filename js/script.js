@@ -1,21 +1,35 @@
 // masterArray
 
-let masterArray = [
+const masterArray = [
   {
     title: "Groceries",
-    list: ["Bread", "Milk", "Broccoli"],
+    category: "🛒",
+    list: [
+      { text: "Bread", checked: false },
+      { text: "Milk", checked: false },
+      { text: "Broccoli", checked: false },
+    ],
   },
   {
     title: "Doggo",
-    list: ["Seven Best Doggo", "Dog", "Smart Doggo"],
+    category: "🐶",
+    list: [
+      { text: "Seven Best Doggo", checked: false },
+      { text: "Dog", checked: false },
+      { text: "Smart Doggo", checked: false },
+    ],
   },
   {
     title: "Goals",
-    list: ["Travel The World", "Fight The Inner Weakness"],
+    category: "🎯",
+    list: [
+      { text: "Travel The World", checked: false },
+      { text: "Fight The Inner Weakness", checked: false },
+    ],
   },
 ];
 
-class List {
+class Master {
   constructor(title, list) {
     this.title = title;
     this.list = list;
@@ -51,7 +65,7 @@ function renderList(id) {
       taskCheckbox.className = "task-checkbox";
       taskRemove.className = "task-remove";
 
-      taskText.textContent = item;
+      taskText.textContent = item.text;
       taskRemove.textContent = "x";
 
       taskContainer.appendChild(taskCheckbox);
@@ -153,28 +167,30 @@ function renderSidebar() {
 renderList(id);
 renderSidebar();
 
+// type new task
 listForm.addEventListener("submit", (event) => {
   event.preventDefault();
   // prevent blank inputs
   if (listInput.value.trim()) {
     if (masterArray.length === 0) {
       // edge case: if there are no lists, and user adds a new item
-      masterArray.push(new List("Todo 1", [listInput.value]));
+      masterArray.push(new Master("todo #1", [{ text: listInput.value }]));
       id = 0;
       renderSidebar();
     } else {
-      masterArray[id].list.push(listInput.value);
+      masterArray[id].list.push({ text: listInput.value });
     }
     renderList(id);
   }
   listInput.value = "";
 });
 
+// type new list
 sidebarForm.addEventListener("submit", (event) => {
   event.preventDefault();
   // prevent blank inputs
   if (sidebarInput.value.trim()) {
-    masterArray.push(new List(sidebarInput.value, []));
+    masterArray.push(new Master(sidebarInput.value, []));
     // when a new list is created, display that list by default
     id = masterArray.length - 1;
     renderSidebar();
