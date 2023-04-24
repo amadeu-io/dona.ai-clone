@@ -33,9 +33,13 @@ class MasterArray {
   constructor(title, category, items) {
     this.title = title;
     this.category = category;
-    this.list = items.map((item) => {
-      return { text: item, checked: false };
-    });
+    this.list = items.map((item) => ({
+      text: item,
+      checked: false,
+      toggleChecked: () => {
+        this.checked = !this.checked;
+      },
+    }));
   }
 }
 
