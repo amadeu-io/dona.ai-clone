@@ -1,6 +1,6 @@
 // masterArray
 
-const masterArray = [
+const masterArrayExample = [
   {
     title: "Groceries",
     category: "🛒",
@@ -30,8 +30,9 @@ const masterArray = [
 ];
 
 class Master {
-  constructor(title, list) {
+  constructor(title, category, list) {
     this.title = title;
+    this.category = category;
     this.list = list;
   }
 }
@@ -46,6 +47,23 @@ class List {
     this.checked = !this.checked;
   }
 }
+
+const masterArray = [
+  new Master("Groceries", "🛒", [
+    new List("Bread", false),
+    new List("Milk", false),
+    new List("Broccoli", false),
+  ]),
+  new Master("Doggo", "🐶", [
+    new List("Seven Best Doggo", false),
+    new List("Dog", false),
+    new List("Smart Doggo", false),
+  ]),
+  new Master("Goals", "🎯", [
+    new List("Travel The World", false),
+    new List("Fight The Inner Weakness", false),
+  ]),
+];
 
 const left = document.querySelector(".left");
 const sidebar = document.querySelector(".sidebar");
@@ -86,11 +104,14 @@ function renderList(id) {
 
       list.appendChild(task);
 
+      // update checkbox class
+      let isChecked = masterArray[id].list[index].checked;
+      taskCheckbox.classList.toggle("checked", isChecked);
+
       // toggle checkbox
       taskCheckbox.addEventListener("click", () => {
-        //masterArray[id].list[index].toggle();
-        //console.log(masterArray[id].list[index]);
-        taskCheckbox.classList.add("checked");
+        masterArray[id].list[index].toggle();
+        renderList(id);
       });
 
       // remove task
@@ -187,7 +208,7 @@ listForm.addEventListener("submit", (event) => {
     if (masterArray.length === 0) {
       // edge case: if there are no lists, and user adds a new item
       masterArray.push(
-        new Master("todo #1", [new List(listInput.value, false)])
+        new Master("todo #1", "🐶", [new List(listInput.value, false)])
       );
       id = 0;
       renderSidebar();
@@ -205,7 +226,7 @@ sidebarForm.addEventListener("submit", (event) => {
   event.preventDefault();
   // prevent blank inputs
   if (sidebarInput.value.trim()) {
-    masterArray.push(new Master(sidebarInput.value, []));
+    masterArray.push(new Master(sidebarInput.value, "🐶", []));
     // when a new list is created, display that list by default
     id = masterArray.length - 1;
     renderSidebar();
