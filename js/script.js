@@ -65,6 +65,8 @@ const masterArray = [
   ]),
 ];
 
+console.log(masterArray);
+
 const left = document.querySelector(".left");
 const sidebar = document.querySelector(".sidebar");
 const sidebarForm = document.querySelector(".sidebar-form");
@@ -128,18 +130,26 @@ function renderSidebar() {
   sidebar.innerHTML = "";
   masterArray.forEach((item, index) => {
     const title = document.createElement("li");
+    const titleContainer = document.createElement("div");
+    const titleCategory = document.createElement("span");
     const titleText = document.createElement("span");
     const titleRemove = document.createElement("span");
 
     title.className = "title";
+    titleContainer.className = "title-container";
+    titleCategory.className = "title-category";
     titleText.className = "title-text";
     titleRemove.className = "title-remove";
 
+    titleCategory.textContent = item.category;
     titleText.textContent = item.title;
     titleRemove.textContent = "x";
 
-    title.appendChild(titleText);
+    titleContainer.appendChild(titleCategory);
+    titleContainer.appendChild(titleText);
+    title.appendChild(titleContainer);
     title.appendChild(titleRemove);
+
     sidebar.appendChild(title);
 
     // make editable
