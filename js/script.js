@@ -48,24 +48,29 @@ class List {
   }
 }
 
+function pickRandomItem(arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+
+const categories = ["🏠", "⭐", "🍏", "🏋️", "🎯", "🌎"];
+
 const masterArray = [
-  new Master("Groceries", "🛒", [
+  new Master("Groceries", pickRandomItem(categories), [
     new List("Bread", false),
     new List("Milk", false),
     new List("Broccoli", false),
   ]),
-  new Master("Doggo", "🐶", [
+  new Master("Doggo", pickRandomItem(categories), [
     new List("Seven Best Doggo", false),
     new List("Dog", false),
     new List("Smart Doggo", false),
   ]),
-  new Master("Goals", "🎯", [
+  new Master("Goals", pickRandomItem(categories), [
     new List("Travel The World", false),
     new List("Fight The Inner Weakness", false),
   ]),
 ];
-
-console.log(masterArray);
 
 const left = document.querySelector(".left");
 const sidebar = document.querySelector(".sidebar");
@@ -152,17 +157,41 @@ function renderSidebar() {
 
     sidebar.appendChild(title);
 
+    // change category
+    titleCategory.addEventListener("click", () => {
+      title.innerHTML = "";
+
+      const emojiContainer = document.createElement("div");
+      emojiContainer.className = "emoji-container";
+
+      title.style.cursor = "auto";
+
+      categories.forEach((category) => {
+        const emoji = document.createElement("span");
+        emoji.className = "emoji";
+        emoji.textContent = category;
+        emojiContainer.appendChild(emoji);
+
+        emoji.addEventListener("click", () => {
+          masterArray[index].category = category;
+          renderSidebar();
+        });
+      });
+
+      title.appendChild(emojiContainer);
+    });
+
     // make editable
     titleText.addEventListener("click", function (event) {
       // prevent bubbling
       event.stopPropagation();
+      title.innerHTML = "";
 
       const inputElement = document.createElement("input");
       inputElement.id = "sidebar-title-input";
       inputElement.type = "text";
       inputElement.placeholder = "+   Create new list";
 
-      title.innerHTML = "";
       title.appendChild(inputElement);
 
       inputElement.addEventListener("blur", () => {
@@ -218,7 +247,9 @@ listForm.addEventListener("submit", (event) => {
     if (masterArray.length === 0) {
       // edge case: if there are no lists, and user adds a new item
       masterArray.push(
-        new Master("todo #1", "🐶", [new List(listInput.value, false)])
+        new Master("todo #1", pickRandomItem(categories), [
+          new List(listInput.value, false),
+        ])
       );
       id = 0;
       renderSidebar();
@@ -236,7 +267,9 @@ sidebarForm.addEventListener("submit", (event) => {
   event.preventDefault();
   // prevent blank inputs
   if (sidebarInput.value.trim()) {
-    masterArray.push(new Master(sidebarInput.value, "🐶", []));
+    masterArray.push(
+      new Master(sidebarInput.value, pickRandomItem(categories), [])
+    );
     // when a new list is created, display that list by default
     id = masterArray.length - 1;
     renderSidebar();
