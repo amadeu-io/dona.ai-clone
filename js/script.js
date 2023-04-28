@@ -238,6 +238,18 @@ function renderSidebar() {
   });
 }
 
+function renderDate() {
+  const dateText = document.querySelector(".date-text");
+  // get the current day & month
+  const today = new Date();
+  const dayName = today.toLocaleString("en-US", { weekday: "long" });
+  const monthName = today.toLocaleString("en-US", { month: "long" });
+  const day = today.getDate();
+
+  dateText.textContent = `It's ${dayName}, ${monthName} ${day}`;
+}
+
+renderDate();
 renderList(id);
 renderSidebar();
 
