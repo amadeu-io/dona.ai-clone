@@ -53,20 +53,20 @@ function pickRandomItem(arr) {
   return arr[randomIndex];
 }
 
-const categories = ["🏠", "⭐", "🍏", "🏋️", "🎯", "🌎"];
+const emojiArray = ["🏠", "⭐", "🍏", "🏋️", "🎯", "🌎"];
 
 const masterArray = [
-  new Master("Groceries", pickRandomItem(categories), [
+  new Master("Groceries", pickRandomItem(emojiArray), [
     new List("Bread", false),
     new List("Milk", false),
     new List("Broccoli", false),
   ]),
-  new Master("Doggo", pickRandomItem(categories), [
+  new Master("Doggo", pickRandomItem(emojiArray), [
     new List("Seven Best Doggo", false),
     new List("Dog", false),
     new List("Smart Doggo", false),
   ]),
-  new Master("Goals", pickRandomItem(categories), [
+  new Master("Goals", pickRandomItem(emojiArray), [
     new List("Travel The World", false),
     new List("Fight The Inner Weakness", false),
   ]),
@@ -166,14 +166,16 @@ function renderSidebar() {
 
       title.style.cursor = "auto";
 
-      categories.forEach((category) => {
+      // add emojis to screen
+      emojiArray.forEach((emojiItem) => {
         const emoji = document.createElement("span");
         emoji.className = "emoji";
-        emoji.textContent = category;
+        emoji.textContent = emojiItem;
         emojiContainer.appendChild(emoji);
 
+        // when an emoji is clicked, update masterArray and render
         emoji.addEventListener("click", () => {
-          masterArray[index].category = category;
+          masterArray[index].category = emojiItem;
           renderSidebar();
         });
       });
@@ -247,7 +249,7 @@ listForm.addEventListener("submit", (event) => {
     if (masterArray.length === 0) {
       // edge case: if there are no lists, and user adds a new item
       masterArray.push(
-        new Master("todo #1", pickRandomItem(categories), [
+        new Master("todo #1", pickRandomItem(emojiArray), [
           new List(listInput.value, false),
         ])
       );
@@ -268,7 +270,7 @@ sidebarForm.addEventListener("submit", (event) => {
   // prevent blank inputs
   if (sidebarInput.value.trim()) {
     masterArray.push(
-      new Master(sidebarInput.value, pickRandomItem(categories), [])
+      new Master(sidebarInput.value, pickRandomItem(emojiArray), [])
     );
     // when a new list is created, display that list by default
     id = masterArray.length - 1;
