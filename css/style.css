@@ -2,16 +2,16 @@
 
 /* tailwind slate color palette */
 :root {
-  --slate-50: #f9fafb; /* lightest shade of slate */
+  --slate-50: #f9fafb;
   --slate-100: #f3f4f6;
   --slate-200: #e5e7eb;
   --slate-300: #d1d5db;
   --slate-400: #9ca3af;
-  --slate-500: #6b7280; /* default slate color */
+  --slate-500: #6b7280;
   --slate-600: #4b5563;
   --slate-700: #374151;
   --slate-800: #1f2937;
-  --slate-900: #111827; /* darkest shade of slate */
+  --slate-900: #111827;
 }
 
 html {
@@ -29,7 +29,7 @@ body {
   height: 100%;
   display: flex;
   padding: 10px;
-  gap: 10px;
+  box-sizing: border-box;
 }
 
 #sidebar-input:focus,
