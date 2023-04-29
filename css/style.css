@@ -225,8 +225,12 @@ body {
 
 .checked {
   /* checked checkbox */
-  background-color: var(--slate-500);
-  /* text-decoration: line-through; */
+  background-color: var(--slate-400);
+}
+
+.strikethrough {
+  /* strikethrough text */
+  text-decoration: line-through;
 }
 
 .task-remove {

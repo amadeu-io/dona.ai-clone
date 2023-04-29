@@ -114,6 +114,7 @@ function renderList(id) {
       // update checkbox class
       let isChecked = masterArray[id].list[index].checked;
       taskCheckbox.classList.toggle("checked", isChecked);
+      taskText.classList.toggle("strikethrough", isChecked);
 
       // toggle checkbox
       task.addEventListener("click", () => {
