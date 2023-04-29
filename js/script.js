@@ -231,8 +231,20 @@ function renderSidebar() {
       renderList(id);
     });
 
+    title.classList.remove("selected");
+
     // click on title
     title.addEventListener("click", () => {
+      // remove any previous 'selected' classes
+      let titles = document.querySelectorAll(".title");
+      titles.forEach((titleItem) => {
+        titleItem.classList.remove("selected");
+      });
+
+      // add selected class to current clicked title
+      title.classList.add("selected");
+
+      // render current list
       id = index;
       renderList(id);
     });
@@ -271,7 +283,6 @@ listForm.addEventListener("submit", (event) => {
       renderSidebar();
     } else {
       masterArray[id].list.push(new List(listInput.value, false));
-      console.log(masterArray[id].list);
     }
     renderList(id);
   }

@@ -19,7 +19,7 @@ html {
 }
 
 html {
-  color: rgb(53, 53, 53);
+  color: black;
   background-color: var(--slate-200);
   font-family: "Roboto", sans-serif;
   font-size: 14px;
@@ -98,6 +98,10 @@ body {
 #sidebar-input::placeholder,
 #sidebar-title-input::placeholder {
   color: var(--slate-400);
+}
+
+.selected {
+  background-color: var(--slate-100);
 }
 
 /* emoji animation */
