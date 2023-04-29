@@ -247,7 +247,7 @@ function renderSidebar() {
 
   // find the title that's currently selected & add class
   let titles = document.querySelectorAll(".title");
-  titles[id].classList.add("selected");
+  titles[id]?.classList.add("selected"); // '?' checks that titles[id] exists
 }
 
 function renderDate() {
