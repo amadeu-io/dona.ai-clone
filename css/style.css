@@ -156,14 +156,28 @@ body {
 /* header */
 
 .header-section {
-  margin: 30px 0;
+  margin-top: 30px;
+}
+
+.greeting-text,
+.date-text {
+  font-size: 1.3rem;
 }
 
 .greeting-text {
+  font-weight: 500;
   margin-bottom: 10px;
 }
 
+.date-text {
+  color: var(--slate-500);
+}
+
 /* list */
+
+#list-input {
+  margin-top: 30px;
+}
 
 .right li,
 #list-input {
