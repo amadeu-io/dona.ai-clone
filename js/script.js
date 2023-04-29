@@ -240,6 +240,7 @@ function renderSidebar() {
 
 function renderDate() {
   const dateText = document.querySelector(".date-text");
+
   // get the current day & month
   const today = new Date();
   const dayName = today.toLocaleString("en-US", { weekday: "long" });
