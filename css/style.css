@@ -56,7 +56,6 @@ body {
 
 .title,
 #sidebar-input {
-  font-size: 1rem;
   font-weight: 500;
   border-radius: 10px;
   margin-bottom: 5px;
@@ -175,52 +174,78 @@ body {
 
 /* list */
 
-#list-input {
-  margin-top: 30px;
-}
-
-.right li,
+.task,
 #list-input {
   width: 100%;
-  font-size: 1rem;
-  border: 1px solid;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  padding: 20px;
+  margin-bottom: 3px;
+  padding: 15px;
 }
 
-.right li {
+#list-input {
+  margin-top: 30px;
+  border-radius: 15px;
+  background-color: var(--slate-300);
+  margin-bottom: 20px;
+}
+
+.task {
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 6px;
+}
+
+.task:hover {
+  background-color: var(--slate-100);
+  transition: background-color 0.15s;
+}
+
+.task:first-of-type {
+  border-radius: 15px 15px 6px 6px;
+}
+
+.task:last-of-type {
+  border-radius: 6px 6px 15px 15px;
 }
 
 .task-container {
-  border: 0px solid black;
   display: flex;
   align-items: center;
 }
 
 .task-checkbox {
-  height: 15px;
-  width: 15px;
-  margin-right: 15px;
-  border: 1px solid;
-  border-radius: 4px;
+  background-color: var(--slate-200);
+  height: 17px;
+  width: 17px;
+  margin-right: 8px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-/* will check the checkbox */
-
 .checked {
-  background-color: black;
+  /* checked checkbox */
+  background-color: var(--slate-500);
+  /* text-decoration: line-through; */
 }
 
 .task-remove {
+  color: var(--slate-400);
+  height: 17px;
+  width: 17px;
+  border-radius: 5px;
   display: none;
   cursor: pointer;
 }
 
-.right li:hover .task-remove {
-  display: block;
+.task-remove:hover {
+  background-color: var(--slate-200);
+  transition: background-color 0.15s;
+}
+
+.task:hover .task-remove {
+  /* shows remove button when hovering on task */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

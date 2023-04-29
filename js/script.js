@@ -116,7 +116,7 @@ function renderList(id) {
       taskCheckbox.classList.toggle("checked", isChecked);
 
       // toggle checkbox
-      taskCheckbox.addEventListener("click", () => {
+      task.addEventListener("click", () => {
         masterArray[id].list[index].toggle();
         renderList(id);
       });
