@@ -192,7 +192,7 @@ function renderSidebar() {
       const inputElement = document.createElement("input");
       inputElement.id = "sidebar-title-input";
       inputElement.type = "text";
-      inputElement.placeholder = "+   Create new list";
+      inputElement.placeholder = "+     Edit name";
 
       title.appendChild(inputElement);
 

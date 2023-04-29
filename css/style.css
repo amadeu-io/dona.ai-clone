@@ -1,34 +1,50 @@
 /* generic */
 
+/* tailwind slate color palette */
+:root {
+  --slate-50: #f9fafb; /* lightest shade of slate */
+  --slate-100: #f3f4f6;
+  --slate-200: #e5e7eb;
+  --slate-300: #d1d5db;
+  --slate-400: #9ca3af;
+  --slate-500: #6b7280; /* default slate color */
+  --slate-600: #4b5563;
+  --slate-700: #374151;
+  --slate-800: #1f2937;
+  --slate-900: #111827; /* darkest shade of slate */
+}
+
 html {
   height: 100%;
 }
 
 html {
   color: rgb(53, 53, 53);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  background-color: var(--slate-200);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
 }
 
 body {
-  height: 90%;
+  height: 100%;
   display: flex;
   padding: 10px;
   gap: 10px;
 }
 
 #sidebar-input:focus,
-#list-input:focus {
-  outline: 1px solid;
+#list-input:focus,
+#sidebar-title-input:focus {
+  outline: none;
 }
 
 /* left & right containers */
 
 .left {
-  width: 300px;
+  background-color: white;
+  width: 500px;
   padding: 40px;
-  border: 1px solid;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 .right {
@@ -41,16 +57,10 @@ body {
 .title,
 #sidebar-input {
   font-size: 1rem;
-  border: 1px solid;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  font-weight: 500;
+  border-radius: 10px;
+  margin-bottom: 5px;
   padding: 15px;
-}
-
-.title,
-#sidebar-input,
-#sidebar-title-input {
-  height: 25px;
 }
 
 .title {
@@ -58,6 +68,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.title:hover,
+.title:hover #sidebar-title-input {
+  background-color: var(--slate-100);
 }
 
 .title-category {
@@ -69,22 +84,23 @@ body {
   cursor: text;
 }
 
-#sidebar-title-input {
-  font-size: 1rem;
-}
-
-#sidebar-title-input:focus {
-  outline: none;
-}
-
 .title-remove {
   display: none;
   cursor: pointer;
+  color: var(--slate-400);
 }
 
 .title:hover .title-remove {
+  /* shows remove button when hovering on title */
   display: block;
 }
+
+#sidebar-input::placeholder,
+#sidebar-title-input::placeholder {
+  color: var(--slate-400);
+}
+
+/* emoji animation */
 
 .emoji-container {
   width: 100%;
