@@ -225,7 +225,7 @@ body {
 
 .checked {
   /* checked checkbox */
-  background-color: var(--slate-400);
+  background-color: var(--slate-600);
 }
 
 .strikethrough {
