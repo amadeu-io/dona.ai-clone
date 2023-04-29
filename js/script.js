@@ -111,13 +111,13 @@ function renderList(id) {
 
       list.appendChild(task);
 
-      // update checkbox class
+      // update checkbox & text class to show checked style
       let isChecked = masterArray[id].list[index].checked;
       taskCheckbox.classList.toggle("checked", isChecked);
       taskText.classList.toggle("strikethrough", isChecked);
 
       // toggle checkbox
-      task.addEventListener("click", () => {
+      taskCheckbox.addEventListener("click", () => {
         masterArray[id].list[index].toggle();
         renderList(id);
       });
@@ -226,29 +226,28 @@ function renderSidebar() {
       event.stopPropagation();
       masterArray.splice(index, 1);
       // makes sure the id never goes past the last item, prevents bug
-      id = Math.min(id, masterArray.length - 1);
+      if (masterArray.length > 0) {
+        id = Math.min(id, masterArray.length - 1);
+      } else {
+        id = 0; // set id to a default value if masterArray has no elements
+      }
+
       renderSidebar();
       renderList(id);
     });
 
-    title.classList.remove("selected");
-
     // click on title
     title.addEventListener("click", () => {
-      // remove any previous 'selected' classes
-      let titles = document.querySelectorAll(".title");
-      titles.forEach((titleItem) => {
-        titleItem.classList.remove("selected");
-      });
-
-      // add selected class to current clicked title
-      title.classList.add("selected");
-
       // render current list
       id = index;
       renderList(id);
+      renderSidebar();
     });
   });
+
+  // find the title that's currently selected & add class
+  let titles = document.querySelectorAll(".title");
+  titles[id].classList.add("selected");
 }
 
 function renderDate() {
@@ -262,6 +261,8 @@ function renderDate() {
 
   dateText.textContent = `It's ${dayName}, ${monthName} ${day}`;
 }
+
+// program starts here
 
 renderDate();
 renderList(id);
@@ -297,6 +298,7 @@ sidebarForm.addEventListener("submit", (event) => {
     masterArray.push(
       new Master(sidebarInput.value, pickRandomItem(emojiArray), [])
     );
+
     // when a new list is created, display that list by default
     id = masterArray.length - 1;
     renderSidebar();
