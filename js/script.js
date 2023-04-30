@@ -1,3 +1,4 @@
+// masterArray constructor
 class Master {
   constructor(title, category, list) {
     this.title = title;
@@ -6,6 +7,7 @@ class Master {
   }
 }
 
+// list constructor
 class List {
   constructor(text, checked) {
     this.text = text;
@@ -17,6 +19,7 @@ class List {
   }
 }
 
+// finds current date & adds to screen
 function renderDate() {
   const dateText = document.querySelector(".date-text");
 
@@ -29,11 +32,13 @@ function renderDate() {
   dateText.textContent = `It's ${dayName}, ${monthName} ${day}`;
 }
 
+// picks random index of an array
 function pickRandomItem(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
 
+// array of emoji categories
 const emojiArray = ["🏠", "⭐", "🍏", "🏋️", "🎯", "🌎"];
 
 // demo array: can be removed to start with a blank app
