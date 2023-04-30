@@ -45,6 +45,7 @@ body {
   width: 500px;
   padding: 40px;
   border-radius: 20px;
+  overflow: auto;
 }
 
 .right {
