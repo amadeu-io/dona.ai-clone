@@ -1,34 +1,3 @@
-// masterArray
-
-const masterArrayExample = [
-  {
-    title: "Groceries",
-    category: "🛒",
-    list: [
-      { text: "Bread", checked: false },
-      { text: "Milk", checked: false },
-      { text: "Broccoli", checked: false },
-    ],
-  },
-  {
-    title: "Doggo",
-    category: "🐶",
-    list: [
-      { text: "Seven Best Doggo", checked: false },
-      { text: "Dog", checked: false },
-      { text: "Smart Doggo", checked: false },
-    ],
-  },
-  {
-    title: "Goals",
-    category: "🎯",
-    list: [
-      { text: "Travel The World", checked: false },
-      { text: "Fight The Inner Weakness", checked: false },
-    ],
-  },
-];
-
 class Master {
   constructor(title, category, list) {
     this.title = title;
@@ -67,20 +36,39 @@ function pickRandomItem(arr) {
 
 const emojiArray = ["🏠", "⭐", "🍏", "🏋️", "🎯", "🌎"];
 
+// demo array: can be removed to start with a blank app
 const masterArray = [
-  new Master("Groceries", pickRandomItem(emojiArray), [
+  new Master("Groceries", emojiArray[2], [
     new List("Bread", false),
     new List("Milk", false),
     new List("Broccoli", false),
+    new List("Oats", true),
+    new List("Eggs", true),
   ]),
-  new Master("Doggo", pickRandomItem(emojiArray), [
+
+  new Master("Doggo", emojiArray[0], [
     new List("Seven Best Doggo", false),
     new List("Dog", false),
     new List("Smart Doggo", false),
   ]),
-  new Master("Goals", pickRandomItem(emojiArray), [
+
+  new Master("Workout", emojiArray[3], [
+    new List("10 Push Ups", false),
+    new List("7 Pull Ups", false),
+    new List("12 Bicep Curls", false),
+    new List("20 min. Running", false),
+  ]),
+
+  new Master("Goals", emojiArray[4], [
+    new List("Reach 15 Pull Ups", false),
+    new List("Visit Australia", false),
+    new List("Live With Discipline", false),
+  ]),
+
+  new Master("Dreams", emojiArray[1], [
     new List("Travel The World", false),
-    new List("Fight The Inner Weakness", false),
+    new List("Become a Bartender", false),
+    new List("Become a Developer", false),
   ]),
 ];
 
