@@ -112,7 +112,7 @@ function renderList(id) {
       list.appendChild(task);
 
       // update checkbox & text class to show checked style
-      let isChecked = masterArray[id].list[index].checked;
+      let isChecked = masterArray[id].list[index].checked; // true or false
       taskCheckbox.classList.toggle("checked", isChecked);
       taskText.classList.toggle("strikethrough", isChecked);
 

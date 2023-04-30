@@ -71,7 +71,7 @@ body {
 }
 
 .title:hover,
-.title:hover #sidebar-title-input {
+.title:hover {
   background-color: var(--slate-100);
 }
 
@@ -93,6 +93,10 @@ body {
 .title:hover .title-remove {
   /* shows remove button when hovering on title */
   display: block;
+}
+
+#sidebar-title-input {
+  background-color: transparent;
 }
 
 #sidebar-input::placeholder,
