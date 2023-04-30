@@ -48,6 +48,18 @@ class List {
   }
 }
 
+function renderDate() {
+  const dateText = document.querySelector(".date-text");
+
+  // get the current day & month
+  const today = new Date();
+  const dayName = today.toLocaleString("en-US", { weekday: "long" });
+  const monthName = today.toLocaleString("en-US", { month: "long" });
+  const day = today.getDate();
+
+  dateText.textContent = `It's ${dayName}, ${monthName} ${day}`;
+}
+
 function pickRandomItem(arr) {
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
@@ -159,7 +171,9 @@ function renderSidebar() {
     sidebar.appendChild(title);
 
     // change category
-    titleCategory.addEventListener("click", () => {
+    titleCategory.addEventListener("click", (event) => {
+      // prevent bubbling
+      event.stopPropagation();
       title.innerHTML = "";
 
       const emojiContainer = document.createElement("div");
@@ -185,7 +199,7 @@ function renderSidebar() {
     });
 
     // make editable
-    titleText.addEventListener("click", function (event) {
+    titleText.addEventListener("click", (event) => {
       // prevent bubbling
       event.stopPropagation();
       title.innerHTML = "";
@@ -240,26 +254,14 @@ function renderSidebar() {
     title.addEventListener("click", () => {
       // render current list
       id = index;
-      renderList(id);
       renderSidebar();
+      renderList(id);
     });
   });
 
   // find the title that's currently selected & add class
   let titles = document.querySelectorAll(".title");
   titles[id]?.classList.add("selected"); // '?' checks that titles[id] exists
-}
-
-function renderDate() {
-  const dateText = document.querySelector(".date-text");
-
-  // get the current day & month
-  const today = new Date();
-  const dayName = today.toLocaleString("en-US", { weekday: "long" });
-  const monthName = today.toLocaleString("en-US", { month: "long" });
-  const day = today.getDate();
-
-  dateText.textContent = `It's ${dayName}, ${monthName} ${day}`;
 }
 
 // program starts here
