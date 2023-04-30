@@ -202,14 +202,17 @@ function renderSidebar() {
     titleText.addEventListener("click", (event) => {
       // prevent bubbling
       event.stopPropagation();
-      title.innerHTML = "";
+
+      // replace titleText for inputElement
+      titleText.remove();
+      titleRemove.remove();
 
       const inputElement = document.createElement("input");
       inputElement.id = "sidebar-title-input";
       inputElement.type = "text";
       inputElement.placeholder = "+     Edit name";
 
-      title.appendChild(inputElement);
+      titleContainer.appendChild(inputElement);
 
       inputElement.addEventListener("blur", () => {
         // if the value is not empty, update with the input
