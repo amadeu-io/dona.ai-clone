@@ -1,7 +1,7 @@
 # Todo List 📝
 
 <p align="center">
-  <img src="screenshots/screen1.png" width="650px" alt="screenshot" style="border-radius: 50%">
+  <img src="screenshots/screen1.png" width="650px" alt="screenshot">
 </p>
 <h2 align="center">
   <a href="https://nightrunner4.github.io/todo-list">👉 Demo</a>
@@ -9,11 +9,11 @@
 
 ### About 📖
 
-dona.ai clone and fourth project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com)
+[dona.ai](https://dona.ai) clone and fourth project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com).
 
 ### Resources Used 📚
 
-- [dona.ai](https://dona.ai/) (UI Inspo)
+- [dona.ai](https://dona.ai) (UI Inspo)
 - [Google Fonts](https://fonts.google.com) (Icons & Font)
 - [EmojiTerra](https://emojiterra.com/) (Emojis)
 
