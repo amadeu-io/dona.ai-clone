@@ -1,4 +1,4 @@
-# Todo List 📝
+# dona.ai Clone 📝
 
 <p align="center">
   <img src="screenshots/screen1.png" width="650px" alt="screenshot">
