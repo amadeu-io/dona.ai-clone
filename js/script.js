@@ -278,7 +278,7 @@ listForm.addEventListener("submit", (event) => {
     if (masterArray.length === 0) {
       // edge case: if there are no lists, and user adds a new item
       masterArray.push(
-        new Master("todo #1", pickRandomItem(emojiArray), [
+        new Master("Todo 1", pickRandomItem(emojiArray), [
           new List(listInput.value, false),
         ])
       );

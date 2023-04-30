@@ -85,14 +85,23 @@ body {
 }
 
 .title-remove {
+  height: 17px;
+  width: 17px;
+  border-radius: 5px;
   display: none;
   cursor: pointer;
-  color: var(--slate-400);
+}
+
+.title-remove:hover {
+  background-color: var(--slate-200);
+  transition: background-color 0.15s;
 }
 
 .title:hover .title-remove {
   /* shows remove button when hovering on title */
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #sidebar-title-input {
