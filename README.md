@@ -9,7 +9,7 @@
 
 ### About 📖
 
-[dona.ai](https://dona.ai) clone and fourth project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com).
+[dona.ai](https://dona.ai) clone and fourth project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com). Desktop recommended
 
 ### Resources Used 📚
 
