@@ -274,9 +274,7 @@ listForm.addEventListener("submit", (event) => {
     if (masterArray.length === 0) {
       // edge case: if there are no lists, and user adds a new item
       masterArray.push(
-        new Master("Todo 1", pickRandomItem(emojiArray), [
-          new List(listInput.value, false),
-        ])
+        new Master("Todo 1", pickRandomItem(emojiArray), [new List(listInput.value, false)])
       );
       id = 0;
       renderSidebar();
@@ -293,9 +291,7 @@ sidebarForm.addEventListener("submit", (event) => {
   event.preventDefault();
   // prevent blank inputs
   if (sidebarInput.value.trim()) {
-    masterArray.push(
-      new Master(sidebarInput.value, pickRandomItem(emojiArray), [])
-    );
+    masterArray.push(new Master(sidebarInput.value, pickRandomItem(emojiArray), []));
 
     // when a new list is created, display that list by default
     id = masterArray.length - 1;

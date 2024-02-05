@@ -4,7 +4,7 @@
   <img src="screenshots/screen1.png" width="650px" alt="screenshot">
 </p>
 <h2 align="center">
-  <a href="https://amadeu-io.github.io/dona.ai-clone">👉 Demo</a>
+  <a href="https://amadeuio.github.io/dona.ai-clone">👉 Demo</a>
 </h2>
 
 ### About 📖
