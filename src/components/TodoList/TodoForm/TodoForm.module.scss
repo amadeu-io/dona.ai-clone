@@ -1,0 +1,11 @@
+.todoForm {
+  display: flex;
+
+  .todoInput {
+    flex: 1;
+    padding: 15px;
+    font-weight: 400;
+    border-radius: 15px;
+    background-color: var(--slate-300);
+  }
+}

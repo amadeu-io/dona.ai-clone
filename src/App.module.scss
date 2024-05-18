@@ -4,6 +4,9 @@
   min-height: 100vh;
 
   .left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     background-color: white;
     width: 370px;
     padding: 40px;
@@ -16,17 +19,5 @@
     padding: 30px 100px;
     gap: 30px;
     flex: 1;
-
-    .todoForm {
-      display: flex;
-
-      .todoInput {
-        flex: 1;
-        padding: 15px;
-        font-weight: 400;
-        border-radius: 15px;
-        background-color: var(--slate-300);
-      }
-    }
   }
 }

@@ -1,32 +1,26 @@
-import styles from "./App.module.scss"
+import { useSelector } from "react-redux"
+import { RootState } from "./app/store"
 import TodoList from "./components/TodoList/TodoList"
-import { initTodoLists } from "./data/todoLists"
 import TodoTitles from "./components/TodoTitles/TodoTitles"
+import TodoForm from "./components/TodoList/TodoForm/TodoForm"
+import TodoTitleForm from "./components/TodoTitles/TodoTitleForm/TodoTitleForm"
+import Greeting from "./components/Greeting/Greeting"
+import styles from "./App.module.scss"
 
 const App = () => {
-  const todoLists = initTodoLists
-  const activeTodoList = initTodoLists.find(todoList => todoList.active)
+  const todoLists = useSelector((state: RootState) => state.todoLists)
+  const activeTodoList = todoLists.find(todoList => todoList.active)
 
   return (
     <div className={styles.app}>
       <div className={styles.left}>
         <TodoTitles todoLists={todoLists} />
+        <TodoTitleForm />
       </div>
 
       <div className={styles.right}>
-        <div className="header-section">
-          <h1 className="greeting-text">Good Morning, User</h1>
-          <h4 className="date-text">It's Saturday, May 18 </h4>
-        </div>
-
-        <form className={styles.todoForm}>
-          <input
-            className={styles.todoInput}
-            type="text"
-            placeholder="Write a new todo"
-          />
-        </form>
-
+        <Greeting />
+        <TodoForm />
         <TodoList todoList={activeTodoList} />
       </div>
     </div>

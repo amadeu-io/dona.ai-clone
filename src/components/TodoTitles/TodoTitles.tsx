@@ -13,9 +13,6 @@ const TodoTitles: React.FC<TodoTitlesProps> = ({ todoLists }) => {
       {todoLists.map(todoList => (
         <TodoTitleItem key={todoList.id} todoList={todoList} />
       ))}
-      <li>
-        <TodoTitleForm />
-      </li>
     </ul>
   )
 }

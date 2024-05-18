@@ -1,30 +1,15 @@
-import type { Action, ThunkAction } from "@reduxjs/toolkit"
-import { combineSlices, configureStore } from "@reduxjs/toolkit"
-import { setupListeners } from "@reduxjs/toolkit/query"
-import { counterSlice } from "../features/counter/counterSlice"
+import { configureStore } from "@reduxjs/toolkit"
+import todoListsReducer from "../features/counter/todoListsSlice"
+import type { TodoLists } from "../types/todoTypes"
 
-const rootReducer = combineSlices(counterSlice)
-
-export type RootState = ReturnType<typeof rootReducer>
-
-export const makeStore = (preloadedState?: Partial<RootState>) => {
-  const store = configureStore({
-    reducer: rootReducer,
-    preloadedState,
-  })
-
-  setupListeners(store.dispatch)
-  return store
+export interface RootState {
+  todoLists: TodoLists
 }
 
-export const store = makeStore()
+const store = configureStore({
+  reducer: {
+    todoLists: todoListsReducer,
+  },
+})
 
-export type AppStore = typeof store
-
-export type AppDispatch = AppStore["dispatch"]
-export type AppThunk<ThunkReturnType = void> = ThunkAction<
-  ThunkReturnType,
-  RootState,
-  unknown,
-  Action
->
+export default store
