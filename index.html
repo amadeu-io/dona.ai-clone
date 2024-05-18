@@ -1,48 +1,19 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Todo List</title>
-    <link rel="stylesheet" type="text/css" href="./css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dona Clone</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
-      rel="stylesheet" />
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!-- left -->
-    <div class="left">
-      <!-- sidebar -->
-      <ul class="sidebar">
-        <!-- content -->
-      </ul>
-      <form class="sidebar-form">
-        <input
-          id="sidebar-input"
-          type="text"
-          placeholder="+     Create new list" />
-      </form>
-    </div>
-
-    <!-- right -->
-    <div class="right">
-      <!-- header -->
-      <div class="header-section">
-        <div class="greeting-text">Good Morning, User</div>
-        <div class="date-text"></div>
-      </div>
-
-      <!-- list -->
-      <form class="list-form">
-        <input id="list-input" type="text" placeholder="Write a new task" />
-      </form>
-      <ul class="list">
-        <!-- content -->
-      </ul>
-    </div>
-
-    <script src="./js/script.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

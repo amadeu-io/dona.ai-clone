@@ -1,0 +1,60 @@
+.todoItem {
+  padding: 13px 15px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  transition: background-color 0.15s;
+
+  &:hover {
+    background-color: var(--slate-100);
+  }
+
+  .left {
+    display: flex;
+    align-items: center;
+
+    input {
+      height: 17px;
+      width: 17px;
+      background-color: var(--slate-200);
+      margin-right: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:checked {
+        background-color: var(--slate-500);
+      }
+    }
+
+    .title {
+      &.completed {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  .right {
+    .remove {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--slate-400);
+      height: 24px;
+      width: 24px;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0;
+
+      &:hover {
+        background-color: var(--slate-200);
+        transition: background-color 0.15s;
+      }
+    }
+  }
+
+  &:hover .remove {
+    opacity: 1;
+  }
+}

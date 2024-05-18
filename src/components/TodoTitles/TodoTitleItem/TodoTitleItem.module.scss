@@ -1,0 +1,50 @@
+.todoTitleItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+
+  &.active,
+  &:hover {
+    background-color: var(--slate-100);
+  }
+
+  .left {
+    display: flex;
+    gap: 15px;
+
+    .emoji {
+      cursor: pointer;
+    }
+
+    .title {
+      cursor: text;
+    }
+  }
+
+  .right {
+    .remove {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      height: 24px;
+      width: 24px;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0;
+    }
+
+    .remove:hover {
+      background-color: var(--slate-200);
+      transition: background-color 0.15s;
+    }
+  }
+
+  &:hover .remove {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,10 @@
+.todoTitleForm {
+  input {
+    font-weight: 500;
+    padding: 15px;
+
+    &::placeholder {
+      color: var(--slate-400);
+    }
+  }
+}

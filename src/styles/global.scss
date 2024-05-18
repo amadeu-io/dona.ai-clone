@@ -1,0 +1,144 @@
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: rgb(132, 132, 132);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(102, 102, 102);
+}
+
+/* generic */
+
+/* tailwind slate color palette */
+:root {
+  --slate-50: #f9fafb;
+  --slate-100: #f3f4f6;
+  --slate-200: #e5e7eb;
+  --slate-300: #d1d5db;
+  --slate-400: #9ca3af;
+  --slate-500: #6b7280;
+  --slate-600: #4b5563;
+  --slate-700: #374151;
+  --slate-800: #1f2937;
+  --slate-900: #111827;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  color: var(--slate-900);
+  background-color: var(--slate-200);
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 14px;
+  /* default text */
+}
+
+h4 {
+  font-size: 18px;
+  color: var(--slate-400);
+}
+
+#sidebar-input:focus,
+#list-input:focus,
+#sidebar-title-input:focus {
+  outline: none;
+}
+
+/* sidebar */
+
+#sidebar-title-input {
+  background-color: transparent;
+  width: 70%;
+  font-size: 1rem;
+}
+
+#sidebar-input::placeholder,
+#sidebar-title-input::placeholder {
+  color: var(--slate-400);
+}
+
+.selected {
+  background-color: var(--slate-100);
+}
+
+/* emoji animation */
+
+.emoji-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.emoji {
+  padding: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.emoji:hover {
+  background-color: var(--slate-200);
+  transition: background-color 0.15s;
+}
+
+.emoji:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.emoji:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.emoji:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.emoji:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.emoji:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.emoji:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

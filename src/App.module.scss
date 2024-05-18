@@ -1,0 +1,32 @@
+.app {
+  display: flex;
+  padding: 10px;
+  min-height: 100vh;
+
+  .left {
+    background-color: white;
+    width: 370px;
+    padding: 40px;
+    border-radius: 20px;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 100px;
+    gap: 30px;
+    flex: 1;
+
+    .todoForm {
+      display: flex;
+
+      .todoInput {
+        flex: 1;
+        padding: 15px;
+        font-weight: 400;
+        border-radius: 15px;
+        background-color: var(--slate-300);
+      }
+    }
+  }
+}
