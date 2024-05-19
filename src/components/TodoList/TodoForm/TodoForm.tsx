@@ -1,24 +1,21 @@
-import React from "react"
 import { useForm } from "react-hook-form"
-import { useDispatch } from "react-redux"
-import { addTodo } from "../../../features/counter/todoListsSlice"
+import { useTodoLists } from "../../../redux/hooks/useTodoLists"
 import styles from "./TodoForm.module.scss"
 
 interface FormData {
-  todoText: string
+  todoTitle: string
 }
 
 const TodoForm = () => {
   const { register, handleSubmit, reset } = useForm()
-  const dispatch = useDispatch()
-  const useAddTodo = text => {
-    dispatch(addTodo(text))
-  }
+  const { useAddTodo } = useTodoLists()
 
   const onSubmit = (data: FormData) => {
-    const cleanTodoText = data.todoText.trim()
-    if (cleanTodoText) {
-      useAddTodo(cleanTodoText)
+    console.log(data)
+
+    const cleanTodoTitle = data.todoTitle.trim()
+    if (cleanTodoTitle) {
+      useAddTodo(cleanTodoTitle)
       reset()
     }
   }
@@ -29,7 +26,7 @@ const TodoForm = () => {
         className={styles.todoInput}
         type="text"
         placeholder="Write a new todo"
-        {...register("todoText")}
+        {...register("todoTitle")}
       />
     </form>
   )

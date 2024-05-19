@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux"
-import { RootState } from "./app/store"
 import TodoList from "./components/TodoList/TodoList"
 import TodoTitles from "./components/TodoTitles/TodoTitles"
 import TodoForm from "./components/TodoList/TodoForm/TodoForm"
 import TodoTitleForm from "./components/TodoTitles/TodoTitleForm/TodoTitleForm"
 import Greeting from "./components/Greeting/Greeting"
 import styles from "./App.module.scss"
+import { useTodoLists } from "./redux/hooks/useTodoLists"
 
 const App = () => {
-  const todoLists = useSelector((state: RootState) => state.todoLists)
+  const { todoLists } = useTodoLists()
   const activeTodoList = todoLists.find(todoList => todoList.active)
 
   return (
