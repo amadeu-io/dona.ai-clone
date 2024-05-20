@@ -1,5 +1,6 @@
 import styles from "./TodoTitleItem.module.scss"
 import type { TodoList } from "../../../types/todoTypes"
+import { useTodoLists } from "../../../redux/hooks/useTodoLists"
 
 interface TodoTitlesItemProps {
   todoList: TodoList
@@ -7,11 +8,16 @@ interface TodoTitlesItemProps {
 
 const TodoTitleItem: React.FC<TodoTitlesItemProps> = ({ todoList }) => {
   const { id, emoji, title, active } = todoList
+  const { useSetActiveList } = useTodoLists()
+
+  const handleTitleClick = () => {
+    useSetActiveList(id)
+  }
 
   return (
     <li
       className={`${styles.todoTitleItem} ${active ? styles.active : ""}`}
-      key={id}
+      onClick={handleTitleClick}
     >
       <div className={styles.left}>
         <span className={styles.emoji}>{emoji}</span>

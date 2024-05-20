@@ -22,7 +22,7 @@ const TodoForm = () => {
   return (
     <form className={styles.todoForm} onSubmit={handleSubmit(onSubmit)}>
       <input
-        className={styles.todoInput}
+        className={styles.input}
         type="text"
         placeholder="Write a new todo"
         {...register("todoTitle")}

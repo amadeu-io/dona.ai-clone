@@ -2,11 +2,43 @@ import type { PayloadAction } from "@reduxjs/toolkit"
 import { createSlice } from "@reduxjs/toolkit"
 import { initTodoLists } from "../../data/todoLists"
 import { v4 as uuidv4 } from "uuid"
+import getRandomEmoji from "../../utils/getRandomEmoji"
 
 const todoListsSlice = createSlice({
   name: "todoLists",
   initialState: initTodoLists,
   reducers: {
+    addList: (
+      state,
+      action: PayloadAction<string>,
+    ) => {
+      const title = action.payload
+
+      state.forEach(list => {
+        list.active = false
+      })
+
+      const newList = {
+        id: uuidv4(),
+        title,
+        emoji: getRandomEmoji(),
+        active: true,
+        todos: [],
+      }
+
+      state.push(newList)
+    },
+
+    setActiveList: (state, action: PayloadAction<string>) => {
+      state.forEach(list => {
+        if (list.id === action.payload) {
+          list.active = true
+        } else {
+          list.active = false
+        }
+      })
+    },
+
     addTodo: (state, action: PayloadAction<string>) => {
       const newTodo = {
         id: uuidv4(),
@@ -44,8 +76,14 @@ const todoListsSlice = createSlice({
 })
 
 // Export actions for use in components
-export const { addTodo, removeTodo, toggleTodoCompleted, changeTodoTitle } =
-  todoListsSlice.actions
+export const {
+  addList,
+  setActiveList,
+  addTodo,
+  removeTodo,
+  toggleTodoCompleted,
+  changeTodoTitle,
+} = todoListsSlice.actions
 
 // Export the reducer to be included in the store
 export default todoListsSlice.reducer
