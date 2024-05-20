@@ -10,7 +10,8 @@ interface TodoItemProps {
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
   const { id, title, completed } = todo
-  const { useToggleTodoCompleted, useChangeTodoTitle } = useTodoLists()
+  const { useRemoveTodo, useToggleTodoCompleted, useChangeTodoTitle } =
+    useTodoLists()
   const [isReadOnly, setIsReadOnly] = useState(true)
 
   const handleCheckboxClick = () => {
@@ -29,6 +30,10 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
     if (e.key === "Enter") {
       setIsReadOnly(true)
     }
+  }
+
+  const handleRemoveClick = () => {
+    useRemoveTodo(id)
   }
 
   return (
@@ -56,7 +61,9 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
       </div>
 
       <div className={styles.right}>
-        <span className={styles.remove}>x</span>
+        <span className={styles.remove} onClick={handleRemoveClick}>
+          x
+        </span>
       </div>
     </li>
   )

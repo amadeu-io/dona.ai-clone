@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { TodoLists } from "../../types/todoTypes"
 import {
   addTodo,
+  removeTodo,
   toggleTodoCompleted,
   changeTodoTitle,
 } from "../slices/todoListsSlice"
@@ -20,6 +21,11 @@ export const useTodoLists = () => {
     [dispatch],
   )
 
+  const useRemoveTodo = useCallback(
+    (todoId: string) => dispatch(removeTodo(todoId)),
+    [dispatch],
+  )
+
   const useToggleTodoCompleted = useCallback(
     (todoId: string) => dispatch(toggleTodoCompleted(todoId)),
     [dispatch],
@@ -31,5 +37,11 @@ export const useTodoLists = () => {
     [dispatch],
   )
 
-  return { todoLists, useAddTodo, useToggleTodoCompleted, useChangeTodoTitle }
+  return {
+    todoLists,
+    useAddTodo,
+    useRemoveTodo,
+    useToggleTodoCompleted,
+    useChangeTodoTitle,
+  }
 }
