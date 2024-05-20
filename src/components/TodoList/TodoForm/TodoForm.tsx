@@ -11,9 +11,8 @@ const TodoForm = () => {
   const { useAddTodo } = useTodoLists()
 
   const onSubmit = (data: FormData) => {
-    console.log(data)
-
     const cleanTodoTitle = data.todoTitle.trim()
+
     if (cleanTodoTitle) {
       useAddTodo(cleanTodoTitle)
       reset()

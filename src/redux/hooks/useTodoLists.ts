@@ -1,7 +1,11 @@
 import { useCallback } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { TodoLists } from "../../types/todoTypes"
-import { addTodo } from "../slices/todoListsSlice"
+import {
+  addTodo,
+  toggleTodoCompleted,
+  changeTodoTitle,
+} from "../slices/todoListsSlice"
 
 export interface RootState {
   todoLists: TodoLists
@@ -16,5 +20,16 @@ export const useTodoLists = () => {
     [dispatch],
   )
 
-  return { todoLists, useAddTodo }
+  const useToggleTodoCompleted = useCallback(
+    (todoId: string) => dispatch(toggleTodoCompleted(todoId)),
+    [dispatch],
+  )
+
+  const useChangeTodoTitle = useCallback(
+    (todoId: string, newTitle: string) =>
+      dispatch(changeTodoTitle({ todoId, newTitle })),
+    [dispatch],
+  )
+
+  return { todoLists, useAddTodo, useToggleTodoCompleted, useChangeTodoTitle }
 }

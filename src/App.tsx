@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux"
 import TodoList from "./components/TodoList/TodoList"
 import TodoTitles from "./components/TodoTitles/TodoTitles"
 import TodoForm from "./components/TodoList/TodoForm/TodoForm"
