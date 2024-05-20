@@ -1,16 +1,12 @@
 import { useForm } from "react-hook-form"
-import { useTodoLists } from "../../../redux/hooks/useTodoLists"
+import { useLists } from "../../../redux/hooks/useLists"
 import styles from "./TodoForm.module.scss"
-
-interface FormData {
-  todoTitle: string
-}
 
 const TodoForm = () => {
   const { register, handleSubmit, reset } = useForm()
-  const { useAddTodo } = useTodoLists()
+  const { useAddTodo } = useLists()
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: { todoTitle: string }) => {
     const cleanTodoTitle = data.todoTitle.trim()
 
     if (cleanTodoTitle) {

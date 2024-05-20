@@ -1,18 +1,15 @@
 import type { PayloadAction } from "@reduxjs/toolkit"
 import { createSlice } from "@reduxjs/toolkit"
-import { initTodoLists } from "../../data/todoLists"
+import { initLists } from "../../data/lists"
 import { v4 as uuidv4 } from "uuid"
 import getRandomEmoji from "../../utils/getRandomEmoji"
 
-const todoListsSlice = createSlice({
-  name: "todoLists",
-  initialState: initTodoLists,
+const listsSlice = createSlice({
+  name: "lists",
+  initialState: initLists,
   reducers: {
-    addList: (
-      state,
-      action: PayloadAction<string>,
-    ) => {
-      const title = action.payload
+    addList: (state, action: PayloadAction<string>) => {
+      const listTitle = action.payload
 
       state.forEach(list => {
         list.active = false
@@ -20,7 +17,7 @@ const todoListsSlice = createSlice({
 
       const newList = {
         id: uuidv4(),
-        title,
+        listTitle,
         emoji: getRandomEmoji(),
         active: true,
         todos: [],
@@ -42,7 +39,7 @@ const todoListsSlice = createSlice({
     addTodo: (state, action: PayloadAction<string>) => {
       const newTodo = {
         id: uuidv4(),
-        title: action.payload,
+        todoTitle: action.payload,
         completed: false,
       }
       const activeList = state.find(list => list.active)
@@ -70,7 +67,7 @@ const todoListsSlice = createSlice({
       const todo = activeList.todos.find(
         todo => todo.id === action.payload.todoId,
       )
-      todo.title = action.payload.newTitle
+      todo.todoTitle = action.payload.newTitle
     },
   },
 })
@@ -83,7 +80,7 @@ export const {
   removeTodo,
   toggleTodoCompleted,
   changeTodoTitle,
-} = todoListsSlice.actions
+} = listsSlice.actions
 
 // Export the reducer to be included in the store
-export default todoListsSlice.reducer
+export default listsSlice.reducer

@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { useTodoLists } from "../../../redux/hooks/useTodoLists"
+import { useLists } from "../../../redux/hooks/useLists"
 import styles from "./TodoItem.module.scss"
-import type { Todo } from "../../../types/todoTypes"
+import type { Todo } from "../../../types/types"
 import CheckIcon from "../../../icons/CheckIcon"
 
 interface TodoItemProps {
@@ -9,9 +9,9 @@ interface TodoItemProps {
 }
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
-  const { id, title, completed } = todo
+  const { id, todoTitle, completed } = todo
   const { useRemoveTodo, useToggleTodoCompleted, useChangeTodoTitle } =
-    useTodoLists()
+    useLists()
   const [isReadOnly, setIsReadOnly] = useState(true)
 
   const handleCheckboxClick = () => {
@@ -53,7 +53,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
           readOnly={isReadOnly}
           className={`${styles.title} ${completed ? styles.completed : ""}`}
           type="text"
-          value={title}
+          value={todoTitle}
           onClick={handleTitleClick}
           onChange={handleTitleChange}
           onKeyDown={handleKeyDown}

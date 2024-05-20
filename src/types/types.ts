@@ -1,15 +1,15 @@
 export interface Todo {
   id: string
-  title: string
+  todoTitle: string
   completed: boolean
 }
 
-export interface TodoList {
+export interface List {
   id: string
-  title: string
+  listTitle: string
   emoji: string
   active: boolean
   todos: Todo[]
 }
 
-export type TodoLists = TodoList[]
+export type Lists = List[]
