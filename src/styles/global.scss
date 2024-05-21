@@ -43,32 +43,15 @@ html {
 
 h1 {
   font-size: 18px;
-  margin-bottom: 6px;
 }
 
 h2 {
-  font-size: 14px;
-  font-weight: 500;
-}
-
-h3 {
-  font-size: 14px;
-  /* default text */
-}
-
-h4 {
   font-size: 18px;
   color: var(--slate-400);
 }
 
-#sidebar-input:focus,
-#list-input:focus,
-#sidebar-title-input:focus {
-  outline: none;
-}
-
 /* sidebar */
-
+/* 
 #sidebar-title-input {
   background-color: transparent;
   width: 70%;
@@ -83,7 +66,7 @@ h4 {
 .selected {
   background-color: var(--slate-100);
 }
-
+ */
 /* emoji animation */
 
 .emoji-container {

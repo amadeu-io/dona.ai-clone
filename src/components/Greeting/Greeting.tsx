@@ -9,9 +9,9 @@ const Greeting = () => {
   return (
     <div className={styles.greeting}>
       <h1>Good Morning, User</h1>
-      <h4>
+      <h2>
         It's {dayName}, {monthName} {day}
-      </h4>
+      </h2>
     </div>
   )
 }

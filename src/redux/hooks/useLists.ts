@@ -4,10 +4,13 @@ import { Lists } from "../../types/types"
 import {
   addList,
   setActiveList,
+  changeListTitle,
+  changeListEmoji,
+  removeList,
   addTodo,
-  removeTodo,
   toggleTodoCompleted,
   changeTodoTitle,
+  removeTodo,
 } from "../slices/listsSlice"
 
 export interface RootState {
@@ -15,7 +18,7 @@ export interface RootState {
 }
 
 export const useLists = () => {
-  const todoLists = useSelector((state: RootState) => state.lists)
+  const lists = useSelector((state: RootState) => state.lists)
   const dispatch = useDispatch()
 
   const useAddList = useCallback(
@@ -28,13 +31,25 @@ export const useLists = () => {
     [dispatch],
   )
 
-  const useAddTodo = useCallback(
-    (title: string) => dispatch(addTodo(title)),
+  const useChangeListTitle = useCallback(
+    (listId: string, newTitle: string) =>
+      dispatch(changeListTitle({ listId, newTitle })),
     [dispatch],
   )
 
-  const useRemoveTodo = useCallback(
-    (todoId: string) => dispatch(removeTodo(todoId)),
+  const useChangeListEmoji = useCallback(
+    (listId: string, newEmoji: string) =>
+      dispatch(changeListEmoji({ listId, newEmoji })),
+    [dispatch],
+  )
+
+  const useRemoveList = useCallback(
+    (listId: string) => dispatch(removeList(listId)),
+    [dispatch],
+  )
+
+  const useAddTodo = useCallback(
+    (title: string) => dispatch(addTodo(title)),
     [dispatch],
   )
 
@@ -49,13 +64,21 @@ export const useLists = () => {
     [dispatch],
   )
 
+  const useRemoveTodo = useCallback(
+    (todoId: string) => dispatch(removeTodo(todoId)),
+    [dispatch],
+  )
+
   return {
-    todoLists,
+    lists,
     useAddList,
     useSetActiveList,
+    useChangeListTitle,
+    useChangeListEmoji,
+    useRemoveList,
     useAddTodo,
-    useRemoveTodo,
     useToggleTodoCompleted,
     useChangeTodoTitle,
+    useRemoveTodo,
   }
 }
