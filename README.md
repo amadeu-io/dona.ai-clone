@@ -1,24 +1,74 @@
+![Stack](https://img.shields.io/badge/Stack-React_|_TypeScript-149eca)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 # dona.ai Clone 📝
 
+Clone of [dona.ai](https://dona.ai) with React
+
+## Demo
+
 <p align="center">
-  <img src="screenshots/screen1.png" width="650px" alt="screenshot">
+  <img src="public/screenshots/screenshot.png" width="650px" alt="screenshot">
 </p>
 <h2 align="center">
-  <a href="https://amadeuio.github.io/dona.ai-clone">👉 Demo</a>
+  <a href="https://dona-ai-clone.netlify.app">👉 Demo</a>
 </h2>
 
-### About 📖
+## About
 
-[dona.ai](https://dona.ai) clone and fourth project of the JavaScript chapter in [The Odin Project](https://www.theodinproject.com). Desktop recommended
+To do list app
 
-### Resources Used 📚
+## Features
 
-- [dona.ai](https://dona.ai) (UI Inspo)
-- [Google Fonts](https://fonts.google.com) (Icons & Font)
-- [EmojiTerra](https://emojiterra.com/) (Emojis)
+- Add multiple todo lists
+- Select an emoji for each list
+- Responsive
 
-### Built With 🛠️
+## Tech Stack
 
-- JS
-- CSS
-- HTML
+- **UI Library:** React
+- **Languages:** TypeScript, SCSS, HTML
+- **Build Tool:** Next.js
+- **Deployment:** Netlify
+- **Dependencies:**
+  - redux: State management
+  - react-hook-form: User form
+  - MUI: Drawer for mobile
+  - uuid: Unique id's
+
+## Run Locally
+
+Clone the project
+
+```bash
+git clone https://github.com/amadeuio/dona.ai-clone
+```
+
+Go to the project directory
+
+```bash
+cd dona.ai-clone
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the server
+
+```bash
+npm run dev
+```
+
+## Acknowledgements
+
+- [Google Icons](https://fonts.google.com/icons)
+- [ChatGPT](https://chat.openai.com)
+
+Shoutout to my code companions: Coffee & [Cozy Fireplace](https://www.youtube.com/watch?v=ze-TjhwceFE)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
