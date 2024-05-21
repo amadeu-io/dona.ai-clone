@@ -3,6 +3,7 @@ import { useLists } from "../../../redux/hooks/useLists"
 import styles from "./TodoItem.module.scss"
 import type { Todo } from "../../../types/types"
 import CheckIcon from "../../../icons/CheckIcon"
+import getTextWidth from "../../../utils/getTextWidth"
 
 interface TodoItemProps {
   todo: Todo
@@ -54,6 +55,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
           className={`${styles.title} ${completed ? styles.completed : ""}`}
           type="text"
           value={todoTitle}
+          style={{ width: `${getTextWidth(todoTitle, 400)}px` }} // width will tightly fit its text
           onClick={handleTitleClick}
           onChange={handleTitleChange}
           onKeyDown={handleKeyDown}
