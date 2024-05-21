@@ -1,10 +1,5 @@
 .listItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 13px 15px;
   border-radius: 10px;
-  cursor: pointer;
   transition: background-color 0.15s;
 
   &.active,
@@ -12,42 +7,59 @@
     background-color: var(--slate-100);
   }
 
-  .left {
+  .listContent {
+    height: 50px;
+    width: 290px;
+    padding: 0 9px;
     display: flex;
-    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
 
-    .emoji {
-      cursor: pointer;
-    }
-
-    .title {
-      font-size: 14px;
-      font-weight: 500;
-      cursor: text;
-      background-color: transparent;
-    }
-  }
-
-  .right {
-    .remove {
+    .left {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 500;
-      height: 24px;
-      width: 24px;
-      border-radius: 5px;
-      cursor: pointer;
-      opacity: 0;
+      gap: 15px;
+
+      .emoji {
+        padding: 6px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .emoji:hover {
+        background-color: var(--slate-200);
+        transition: background-color 0.15s;
+      }
+
+      .title {
+        font-size: 14px;
+        font-weight: 500;
+        cursor: text;
+        background-color: transparent;
+      }
     }
 
-    .remove:hover {
-      background-color: var(--slate-200);
-      transition: background-color 0.15s;
-    }
-  }
+    .right {
+      .remove {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+        height: 24px;
+        width: 24px;
+        border-radius: 5px;
+        cursor: pointer;
+        opacity: 0;
+      }
 
-  &:hover .remove {
-    opacity: 1;
+      .remove:hover {
+        background-color: var(--slate-200);
+        transition: background-color 0.15s;
+      }
+    }
+
+    &:hover .remove {
+      opacity: 1;
+    }
   }
 }
