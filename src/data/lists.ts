@@ -35,4 +35,34 @@ export const initLists: Lists = [
       { id: uuidv4(), todoTitle: "Purchase gift", completed: false },
     ],
   },
+  {
+    id: uuidv4(),
+    listTitle: "Fitness Goals",
+    emoji: "🏃",
+    active: false,
+    todos: [
+      { id: uuidv4(), todoTitle: "Run 5 miles", completed: false },
+      { id: uuidv4(), todoTitle: "Attend yoga class", completed: true },
+      { id: uuidv4(), todoTitle: "Strength training", completed: false },
+    ],
+  },
+  {
+    id: uuidv4(),
+    listTitle: "Reading List",
+    emoji: "📚",
+    active: false,
+    todos: [
+      { id: uuidv4(), todoTitle: "Finish 'Clean Code'", completed: true },
+      {
+        id: uuidv4(),
+        todoTitle: "Read 'JavaScript: The Good Parts'",
+        completed: false,
+      },
+      {
+        id: uuidv4(),
+        todoTitle: "Start 'The Pragmatic Programmer'",
+        completed: false,
+      },
+    ],
+  },
 ]
