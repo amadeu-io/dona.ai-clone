@@ -64,7 +64,7 @@ const ListItem: React.FC<ListItemProps> = ({ list }) => {
               className={styles.title}
               type="text"
               value={listTitle}
-              style={{ width: `${getTextWidth(listTitle, 500)}px` }} // width will tightly fit its text
+              style={{ width: `${getTextWidth(listTitle, 500)}px` }} // tightly fit text
               onClick={handleTitleClick}
               onChange={handleTitleChange}
               onKeyDown={handleKeyDown}

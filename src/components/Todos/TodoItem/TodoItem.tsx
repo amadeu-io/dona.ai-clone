@@ -55,7 +55,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
           className={`${styles.title} ${completed ? styles.completed : ""}`}
           type="text"
           value={todoTitle}
-          style={{ width: `${getTextWidth(todoTitle, 400)}px` }} // width will tightly fit its text
+          style={{ width: `${getTextWidth(todoTitle, 400)}px` }} // tightly fit text
           onClick={handleTitleClick}
           onChange={handleTitleChange}
           onKeyDown={handleKeyDown}

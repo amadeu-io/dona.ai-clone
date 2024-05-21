@@ -7,12 +7,12 @@ const Greeting = () => {
   const day = today.getDate()
 
   return (
-    <div className={styles.greeting}>
+    <header className={styles.greeting}>
       <h1>Good Morning, User</h1>
       <h2>
         It's {dayName}, {monthName} {day}
       </h2>
-    </div>
+    </header>
   )
 }
 

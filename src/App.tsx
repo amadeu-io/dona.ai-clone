@@ -13,16 +13,16 @@ const App = () => {
 
   return (
     <div className={styles.app}>
-      <div className={styles.left}>
+      <aside className={styles.left}>
         <TodoTitles lists={lists} />
         <TodoTitleForm />
-      </div>
+      </aside>
 
-      <div className={styles.right}>
+      <main className={styles.right}>
         <Greeting />
         <TodoForm />
         {activeList && <Todos activeList={activeList} />}
-      </div>
+      </main>
     </div>
   )
 }
