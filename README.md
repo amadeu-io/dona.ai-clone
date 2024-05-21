@@ -1,4 +1,4 @@
-![Stack](https://img.shields.io/badge/Stack-React_|_TypeScript-149eca)
+![Stack](https://img.shields.io/badge/Stack-React_|_TypeScript_|_Next.js_|_Redux-149eca)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 # dona.ai Clone 📝
@@ -13,10 +13,6 @@ Clone of [dona.ai](https://dona.ai) with React
 <h2 align="center">
   <a href="https://dona-ai-clone.netlify.app">👉 Demo</a>
 </h2>
-
-## About
-
-To do list app
 
 ## Features
 
