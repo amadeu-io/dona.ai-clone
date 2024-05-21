@@ -32,11 +32,16 @@
       }
 
       .title {
+        border: 1px solid black;
         max-width: 200px;
         font-size: 14px;
         font-weight: 500;
         cursor: text;
         background-color: transparent;
+
+        @media (max-width: 460px) {
+          max-width: 140px;
+        }
       }
     }
 
